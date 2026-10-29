@@ -1,0 +1,30 @@
+VERSION 5.8 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN cts_cover_memory ;
+UNITS DISTANCE MICRONS 2000 ;
+DIEAREA ( 0 0 ) ( 600000 600000 ) ;
+
+COMPONENTS 6 ;
+- macro0 fakeram45_256x16_bottom + FIXED ( 40000 40000 ) N ;
+- macro1 fakeram45_256x16_bottom + FIXED ( 300000 40000 ) N ;
+- covered_ram fakeram45_256x16_upper + FIXED ( 40000 300000 ) N ;
+- ff0 DFF_X1_bottom + PLACED ( 300000 300000 ) N ;
+- ff1 DFF_X1_bottom + PLACED ( 320000 300000 ) N ;
+- feedback INV_X1_bottom + PLACED ( 240000 300000 ) N ;
+END COMPONENTS
+
+PINS 1 ;
+- clk + NET clk + DIRECTION INPUT + USE CLOCK
+  + LAYER M2 ( 0 0 ) ( 100 100 ) + FIXED ( 0 300000 ) N ;
+END PINS
+
+NETS 5 ;
+- clk ( PIN clk ) ( macro0 clk ) ( macro1 clk ) ( covered_ram clk )
+  ( ff0 CK ) ( ff1 CK ) + USE CLOCK ;
+- ram_data ( covered_ram rd_out[0] ) ( feedback A ) ;
+- ram_addr ( feedback ZN ) ( covered_ram addr_in[7] ) ;
+- ff_data0 ( ff0 Q ) ( ff1 D ) ;
+- ff_data1 ( ff1 Q ) ( ff0 D ) ;
+END NETS
+END DESIGN

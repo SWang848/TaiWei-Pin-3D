@@ -50,6 +50,18 @@ The most useful documents in this repository are:
 source env.sh
 ```
 
+The pinned OpenROAD revision can recurse through RAM data feedback when CTS reports a combined clock tree containing `COVER` memory macros. The [COVER-memory CTS compatibility patch](patches/openroad/cts-cover-memory-boundary.patch) preserves the physical views and stops that reporting traversal at logical memory boundaries. Apply it to the OpenROAD source, then rebuild and reinstall that dependency. For a fresh dependency checkout, apply it from this repository with:
+
+```bash
+patch -d "$ORFS_DIR/tools/OpenROAD" -p1 < patches/openroad/cts-cover-memory-boundary.patch
+```
+
+After rebuilding, check the installed executable with the [focused regression](tests/openroad/cts_cover_memory.tcl). It contains a covered RAM with data feedback and verifies that all clock loads remain reachable:
+
+```bash
+"$OPENROAD_EXE" -no_init -exit tests/openroad/cts_cover_memory.tcl
+```
+
 ### Example 1: Run the open-source flow for GCD design (3D stack setting: ASAP7 + ASAP7)
 ```bash
 # Run open-source flow for the GCD design (3D stack setting: ASAP7 + ASAP7)
