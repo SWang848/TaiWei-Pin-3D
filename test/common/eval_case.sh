@@ -40,7 +40,7 @@ case "${FLOW_KIND}" in
         ;;
     esac
     export FLOW_VARIANT="${FLOW_VARIANT:-openroad}"
-    TARGET="cds-final"
+    TARGET="ord-final"
     ;;
   cds)
     export USE_FLOW="${USE_FLOW:-cadence}"
