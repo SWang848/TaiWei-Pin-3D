@@ -211,6 +211,45 @@ Two metrics are central to this flow and are intentionally treated as different 
 
 This distinction is important because a split operation may keep one controlled cross-tier bridge in the physical graph while still converting the original fanout into tier-pure branches for later optimization.
 
+### External Macro Partitions
+
+Set `MACRO_PARTITION_FILE` to bypass TritonPart and import a macro-only text
+file with one `<instance_name> <tier>` row per macro. Physical tier labels are
+`0 = upper` and `1 = bottom`. Use exact hierarchical names from the matching
+2D seed DEF/Verilog; underscores within instance names are significant.
+This input is a two-column text file, not the external algorithm's JSON.
+
+The [BP_BE example](designs/nangate45_3D/bp_be/macro_partition.txt) assigns four
+data memories to upper and the other six memories to bottom. With the matching
+2D seed files already present in the 3D results directory, generate the views
+directly:
+
+```bash
+export MACRO_PARTITION_FILE="$PWD/designs/nangate45_3D/bp_be/macro_partition.txt"
+export STD_CELL_TIER=bottom
+make DESIGN_CONFIG=designs/nangate45_3D/bp_be/config.mk \
+  FLOW_VARIANT=openroad PIN3D_VIEW_IMPL=tcl ord-pre
+```
+
+For a new run, keep those environment variables set for both the 2D and 3D
+stages. Use `ord-3d-flow-2dpart` with the case's `config2d.mk` first; its
+`ord-tier-partition` target imports the supplied file and copies the seed
+artifacts into the 3D results directory. Then use `ord-pre` or `ord-3d-flow`
+with `config.mk`. The Cadence bootstrap delegates to the same import target.
+
+External import requires the Tcl view generator. It checks unknown names,
+duplicate rows, missing macros and invalid tier labels before remapping, and
+preserves the physical labels instead of automatically swapping partitions.
+All existing `CORE*` cells are assigned to `STD_CELL_TIER` (`bottom` by default;
+`upper` is also supported), while each `BLOCK*` macro follows the input file.
+Standard cells remain movable within their tier; macro x/y coordinates are
+still determined by the macro-placement stages. Buffers inserted later by
+split-net, optimization or CTS stages follow those stages' separate policies.
+
+Keep `MACRO_PARTITION_FILE` set whenever regenerating these views: without it,
+the flow uses the original full-partition input and orientation behavior.
+Unset it to return to the TritonPart flow.
+
 ### [Stage-by-Stage](#Stage-by-Stage)
 
 > The rows below summarize the current public stage graph used by the maintained OpenROAD and Cadence launchers.

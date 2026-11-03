@@ -182,6 +182,41 @@ proc ::pin3d::parse_partition_file {path} {
   return $part_map
 }
 
+# External input uses exact instance names and physical tiers, not cluster IDs
+# whose orientation may be changed later. Reject malformed or duplicate rows.
+proc ::pin3d::parse_macro_partition_file {path} {
+  if {![file isfile $path]} {
+    error "Macro partition file not found: $path"
+  }
+  set fh [open $path r]
+  set part_map [dict create]
+  set line_no 0
+  try {
+    while {[gets $fh line] >= 0} {
+      incr line_no
+      set s [string trim $line]
+      if {$s eq "" || [string match "#*" $s] || [string match "//*" $s]} {
+        continue
+      }
+      set toks [regexp -all -inline {\S+} $s]
+      if {[llength $toks] != 2 || [lindex $toks 1] ni {0 1}} {
+        error "$path:$line_no: expected '<macro_instance> <0=upper|1=bottom>'"
+      }
+      set name [::pin3d::normalize_name [lindex $toks 0]]
+      if {[dict exists $part_map $name]} {
+        error "$path:$line_no: duplicate macro partition: $name"
+      }
+      dict set part_map $name [lindex $toks 1]
+    }
+  } finally {
+    close $fh
+  }
+  if {[dict size $part_map] == 0} {
+    error "Macro partition file is empty: $path"
+  }
+  return $part_map
+}
+
 proc ::pin3d::is_power_pin_name {pin_name} {
   expr {[string toupper $pin_name] in {"VDD" "VSS" "VPWR" "VGND" "VPB" "VNB" "VNW"}}
 }
@@ -342,6 +377,49 @@ proc ::pin3d::collect_block_context {block} {
     norm_to_inst $norm_to_inst \
     norm_to_base $norm_to_base \
     top_pins $top_pins]
+}
+
+# Complete a macro-only map with standard-cell assignments. Validate against
+# the loaded 2D seed so typos cannot silently leave instances unconverted.
+proc ::pin3d::complete_macro_partition {part_map insts norm_to_inst std_tier} {
+  if {$std_tier ni {bottom upper}} {
+    error "STD_CELL_TIER must be bottom or upper (got '$std_tier')"
+  }
+  set std_die [expr {$std_tier eq "upper" ? 0 : 1}]
+  dict for {name die} $part_map {
+    if {![dict exists $norm_to_inst $name]} {
+      error "Unknown macro instance '$name'; use exact names from the 2D seed design"
+    }
+    set inst [dict get $norm_to_inst $name]
+    if {![string match "BLOCK*" [[$inst getMaster] getType]]} {
+      error "Macro partition entry '$name' is not a BLOCK macro"
+    }
+    if {$die ni {0 1}} {
+      error "Invalid physical tier for macro '$name': $die"
+    }
+  }
+
+  set completed [dict create]
+  set macro_count 0
+  set std_count 0
+  foreach inst $insts {
+    set name [::pin3d::normalize_name [$inst getName]]
+    set type [[$inst getMaster] getType]
+    if {[string match "BLOCK*" $type]} {
+      if {![dict exists $part_map $name]} {
+        error "Missing macro partition: $name"
+      }
+      dict set completed $name [dict get $part_map $name]
+      incr macro_count
+    } elseif {[string match "CORE*" $type]} {
+      dict set completed $name $std_die
+      incr std_count
+    } else {
+      error "Unsupported 2D seed master type '$type' for '$name'; expected BLOCK* or CORE*"
+    }
+  }
+  ::pin3d::log "External macro partition: macros=$macro_count standard_cells=$std_count standard_cell_tier=$std_tier; keep physical labels 0=upper, 1=bottom"
+  return $completed
 }
 
 proc ::pin3d::swap_partition_labels {part_map} {
@@ -832,8 +910,15 @@ proc ::pin3d::resolve_run_inputs {} {
     }
   }
 
+  set external_macros [env_var_exists_and_non_empty MACRO_PARTITION_FILE]
+  set partition_path [file join $::env(RESULTS_DIR) partition.txt]
+  if {$external_macros} {
+    set partition_path [file normalize $::env(MACRO_PARTITION_FILE)]
+  }
+
   return [dict create \
-    partition_path [file join $::env(RESULTS_DIR) partition.txt] \
+    external_macros $external_macros \
+    partition_path $partition_path \
     cell_map_path [file join $::env(PLATFORM_DIR) map.json] \
     def_in [file join $::env(RESULTS_DIR) 2_2_floorplan_io.def] \
     v_in [file join $::env(RESULTS_DIR) 2_2_floorplan_io.v] \
@@ -877,7 +962,11 @@ proc ::pin3d::write_outputs {run_inputs const_bindings stats_var} {
 
 proc ::pin3d::run {} {
   set run_inputs [::pin3d::resolve_run_inputs]
-  set part_map [::pin3d::parse_partition_file [dict get $run_inputs partition_path]]
+  if {[dict get $run_inputs external_macros]} {
+    set part_map [::pin3d::parse_macro_partition_file [dict get $run_inputs partition_path]]
+  } else {
+    set part_map [::pin3d::parse_partition_file [dict get $run_inputs partition_path]]
+  }
   set cell_map [::pin3d::parse_cell_map [dict get $run_inputs cell_map_path]]
   ::pin3d::configure_mixed_library_view
   ::pin3d::load_seed_design $run_inputs
@@ -894,7 +983,12 @@ proc ::pin3d::run {} {
   set norm_to_base [dict get $block_context norm_to_base]
   set top_pins [dict get $block_context top_pins]
 
-  set adjusted_part_map [::pin3d::choose_partition_orientation $part_map $cell_map $norm_to_base $top_pins]
+  if {[dict get $run_inputs external_macros]} {
+    set std_tier [_get STD_CELL_TIER bottom]
+    set adjusted_part_map [::pin3d::complete_macro_partition $part_map $insts $norm_to_inst $std_tier]
+  } else {
+    set adjusted_part_map [::pin3d::choose_partition_orientation $part_map $cell_map $norm_to_base $top_pins]
+  }
   set replace_result [::pin3d::replace_partitioned_instances $block $db $insts $adjusted_part_map $cell_map $norm_to_inst]
   set stats [dict get $replace_result stats]
   set const_bindings [dict get $replace_result const_bindings]

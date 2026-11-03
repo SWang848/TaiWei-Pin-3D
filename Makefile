@@ -54,6 +54,8 @@ include $(PLATFORM_DIR)/config.mk
 export DESIGN_NICKNAME ?= $(DESIGN_NAME)
 export FLOW_VARIANT    ?= base   # can be openroad / cadence / hybrid
 export PIN3D_VIEW_IMPL ?= tcl
+export MACRO_PARTITION_FILE ?=
+export STD_CELL_TIER ?= bottom
 
 export LOG_DIR     ?= $(WORK_HOME)/logs/$(PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)
 export OBJECTS_DIR ?= $(WORK_HOME)/objects/$(PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)
@@ -309,7 +311,15 @@ ord-preplace:
 ord-tier-partition:
 	@echo "[ORD] Tier partition"
 	@$(call _mkstdirs)
+ifneq ($(strip $(MACRO_PARTITION_FILE)),)
+	@test -f "$(MACRO_PARTITION_FILE)" || { echo "[ERROR][ORD] Macro partition file not found: $(MACRO_PARTITION_FILE)"; exit 1; }
+	@echo "[ORD] Import macro partitions from $(MACRO_PARTITION_FILE) (skip TritonPart)"
+	@if [ "$(abspath $(MACRO_PARTITION_FILE))" != "$(abspath $(RESULTS_DIR)/partition.txt)" ]; then \
+		cp -- "$(MACRO_PARTITION_FILE)" "$(RESULTS_DIR)/partition.txt"; \
+	fi
+else
 	$(call _run_with_tmp_log,$(LOG_DIR)/2_tritonpart.log,$(OPENROAD_CMD) $(OPENROAD_SCRIPTS_DIR)/tier_partition.tcl)
+endif
 	@echo "[ORD] Copy 2D artifacts to $(3D_PLATFORM)"
 	@mkdir -p $(WORK_HOME)/results/$(3D_PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)
 	@cp -rf $(RESULTS_DIR)/* $(WORK_HOME)/results/$(3D_PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)/ || true
@@ -332,6 +342,9 @@ ord-pre-tcl:
 
 .PHONY: ord-pre-python
 ord-pre-python:
+	@if [ -n "$(MACRO_PARTITION_FILE)" ]; then \
+		echo "[ERROR][ORD] MACRO_PARTITION_FILE requires PIN3D_VIEW_IMPL=tcl"; exit 1; \
+	fi
 	@echo "[ORD] Generate 3D views (Python baseline)"
 	@$(call _mkstdirs)
 	@python3 "$(OPENROAD_SCRIPTS_DIR)/generate_3d_views.py" \
@@ -345,6 +358,9 @@ ord-pre-python:
 .PHONY: ord-pre
 ord-pre:
 	@echo "[ORD] Generate 3D views"
+	@if [ -n "$(MACRO_PARTITION_FILE)" ] && [ "$(PIN3D_VIEW_IMPL)" = python ]; then \
+		echo "[ERROR][ORD] MACRO_PARTITION_FILE requires PIN3D_VIEW_IMPL=tcl"; exit 1; \
+	fi
 	@case "$(PIN3D_VIEW_IMPL)" in \
 		python) $(MAKE) --no-print-directory ord-pre-python ;; \
 		tcl|"") $(MAKE) --no-print-directory ord-pre-tcl ;; \
