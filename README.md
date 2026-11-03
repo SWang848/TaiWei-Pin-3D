@@ -13,7 +13,7 @@ The most useful documents in this repository are:
 - [test/README.md](test/README.md)
   Running full cases, rerunning a single stage, evaluating an existing result, and opening GUI handoffs.
 - [DOC/import_orfs_designs.md](DOC/import_orfs_designs.md)
-  Importing ORFS benchmarks, including the Ariane136 Nangate45 case and its tier-aware RAM views.
+  Importing ORFS benchmarks, including Ariane136 and the BlackParrot back-end, front-end, and multi cases with tier-aware RAM views.
 - [DOC/openroad_3d_cooptimization_strategy.md](DOC/openroad_3d_cooptimization_strategy.md)
   OpenROAD 3D flow structure, stage contracts, tier policy, split-net strategy, and target map.
 - [DOC/cadence_3d_cooptimization_strategy.md](DOC/cadence_3d_cooptimization_strategy.md)
