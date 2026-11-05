@@ -1,0 +1,1730 @@
+{
+  "pareto_archive": {
+    "description": "Complete Pareto archive containing all non-dominated solutions found during HMSA optimization",
+    "solutions": {
+      "(36, 31)": {
+        "cost": [
+          876,
+          1873074.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(36, 26)": {
+        "cost": [
+          881,
+          914546.4095458984
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 24)": {
+        "cost": [
+          1059,
+          644464.2845458984
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 30)": {
+        "cost": [
+          884,
+          1602992.7845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 34)": {
+        "cost": [
+          886,
+          2561521.2845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 30)": {
+        "cost": [
+          1061,
+          1602992.7845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 36)": {
+        "cost": [
+          910,
+          3520049.7845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(34, 36)": {
+        "cost": [
+          602,
+          3520049.7845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 18)": {
+        "cost": [
+          1313,
+          292607.37170410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 29)": {
+        "cost": [
+          1389,
+          1251135.8717041016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 18)": {
+        "cost": [
+          1144,
+          292607.37170410156
+        ],
+        "solution": [
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 34)": {
+        "cost": [
+          657,
+          2582978.1282958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(35, 30)": {
+        "cost": [
+          765,
+          1624449.6282958984
+        ],
+        "solution": [
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(33, 36)": {
+        "cost": [
+          542,
+          3541506.6282958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 34)": {
+        "cost": [
+          746,
+          2561521.2845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(30, 37)": {
+        "cost": [
+          287,
+          3811588.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(32, 34)": {
+        "cost": [
+          419,
+          2831603.4095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(33, 32)": {
+        "cost": [
+          534,
+          1894531.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(26, 38)": {
+        "cost": [
+          133,
+          4770117.253295898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(29, 37)": {
+        "cost": [
+          248,
+          3811588.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 34)": {
+        "cost": [
+          523,
+          2831603.4095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(32, 37)": {
+        "cost": [
+          424,
+          3790131.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(32, 38)": {
+        "cost": [
+          427,
+          4500035.128295898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(38, 24)": {
+        "cost": [
+          1279,
+          644464.2845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 18)": {
+        "cost": [
+          1542,
+          292607.37170410156
+        ],
+        "solution": [
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 29)": {
+        "cost": [
+          1556,
+          1251135.8717041016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 27)": {
+        "cost": [
+          1277,
+          981053.7467041016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 0)": {
+        "cost": [
+          903,
+          22525.246704101562
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 26)": {
+        "cost": [
+          765,
+          914546.4095458984
+        ],
+        "solution": [
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 27)": {
+        "cost": [
+          1146,
+          981053.7467041016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 4)": {
+        "cost": [
+          883,
+          43982.09045410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 4)": {
+        "cost": [
+          1063,
+          43982.09045410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ],
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 32)": {
+        "cost": [
+          1357,
+          1961039.0904541016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 26)": {
+        "cost": [
+          1059,
+          914546.4095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 31)": {
+        "cost": [
+          620,
+          1873074.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 31)": {
+        "cost": [
+          733,
+          1873074.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(34, 37)": {
+        "cost": [
+          616,
+          3790131.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 4)": {
+        "cost": [
+          1281,
+          43982.09045410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ],
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 0)": {
+        "cost": [
+          1072,
+          22525.246704101562
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 33)": {
+        "cost": [
+          1787,
+          2209664.3717041016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 30)": {
+        "cost": [
+          1282,
+          1602992.7845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 36)": {
+        "cost": [
+          734,
+          3520049.7845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 34)": {
+        "cost": [
+          1058,
+          2561521.2845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 38)": {
+        "cost": [
+          603,
+          4478578.284545898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(30, 38)": {
+        "cost": [
+          309,
+          4748660.409545898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 31)": {
+        "cost": [
+          1063,
+          1873074.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 24)": {
+        "cost": [
+          969,
+          644464.2845458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(31, 38)": {
+        "cost": [
+          358,
+          4748660.409545898
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(31, 37)": {
+        "cost": [
+          353,
+          3790131.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(29, 38)": {
+        "cost": [
+          276,
+          4770117.253295898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 38)": {
+        "cost": [
+          498,
+          4478578.284545898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(38, 35)": {
+        "cost": [
+          1533,
+          2898110.7467041016
+        ],
+        "solution": [
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 37)": {
+        "cost": [
+          498,
+          3790131.9095458984
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(27, 38)": {
+        "cost": [
+          166,
+          4748660.409545898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(39, 35)": {
+        "cost": [
+          1860,
+          3189649.7154541016
+        ],
+        "solution": [
+          [],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 19)": {
+        "cost": [
+          1302,
+          314064.21545410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 24)": {
+        "cost": [
+          1547,
+          644464.2845458984
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 32)": {
+        "cost": [
+          876,
+          1894531.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(31, 34)": {
+        "cost": [
+          396,
+          2831603.4095458984
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 26)": {
+        "cost": [
+          1359,
+          914546.4095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 0)": {
+        "cost": [
+          1287,
+          22525.246704101562
+        ],
+        "solution": [
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 0)": {
+        "cost": [
+          850,
+          22525.246704101562
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(0, 39)": {
+        "cost": [
+          0,
+          5728645.753295898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ],
+          []
+        ]
+      },
+      "(39, 19)": {
+        "cost": [
+          1542,
+          314064.21545410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 32)": {
+        "cost": [
+          730,
+          1894531.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 32)": {
+        "cost": [
+          612,
+          1894531.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(30, 39)": {
+        "cost": [
+          294,
+          5458563.628295898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(33, 31)": {
+        "cost": [
+          504,
+          1873074.9095458984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 19)": {
+        "cost": [
+          1177,
+          314064.21545410156
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 26)": {
+        "cost": [
+          675,
+          914546.4095458984
+        ],
+        "solution": [
+          [
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(39, 32)": {
+        "cost": [
+          1549,
+          1961039.0904541016
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem"
+          ],
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(32, 32)": {
+        "cost": [
+          471,
+          1894531.7532958984
+        ],
+        "solution": [
+          [
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      },
+      "(18, 39)": {
+        "cost": [
+          33,
+          5707188.909545898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(28, 38)": {
+        "cost": [
+          204,
+          4748660.409545898
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_metadata_mem.macro_mem.mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 32)": {
+        "cost": [
+          1098,
+          1894531.7532958984
+        ],
+        "solution": [
+          [
+            "icache_1_data_mem_banks_4__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_0__data_mem_bank_macro_mem_mem",
+            "icache_1_tag_mem.macro_mem.mem",
+            "icache_1_metadata_mem.macro_mem.mem",
+            "icache_1_data_mem_banks_2__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_3__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_1__data_mem_bank_macro_mem_mem"
+          ],
+          [
+            "icache_1_data_mem_banks_7__data_mem_bank_macro_mem_mem",
+            "icache_1_data_mem_banks_6__data_mem_bank_macro_mem_mem",
+            "bp_fe_pc_gen_1_genblk1_branch_prediction_1_btb_1_btb_mem_macro_mem_mem",
+            "icache_1_data_mem_banks_5__data_mem_bank_macro_mem_mem"
+          ]
+        ]
+      }
+    }
+  }
+}

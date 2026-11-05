@@ -219,8 +219,62 @@ file with one `<instance_name> <tier>` row per macro. Physical tier labels are
 2D seed DEF/Verilog; underscores within instance names are significant.
 This input is a two-column text file, not the external algorithm's JSON.
 
+To prepare all solutions from a candidate archive, run the root-level generator:
+
+```bash
+python3 generate_macro_partitions.py partition_experiments/nangate45_3D/bp_be/candidates.json
+```
+
+It creates `solutions/s0000/`, `solutions/s0001/`, and so on beside the input
+JSON, with `macro_partition.txt` and `solution.json` in each folder. Each
+metadata JSON contains only `solution_id`, `source_index`, `source_key`, and
+`cost`. The generator also writes `manifest.tsv` and `macro_name_map.tsv`.
+The candidate JSON uses `solution[0]` for bottom and `solution[1]` for upper.
+The generator translates those indices into Taiwei3D's physical labels:
+the first group is written with label `1`, and the second with label `0`.
+The source JSON and its cost values are preserved.
+
+For a case under `partition_experiments/<platform>/<case>/`, the generator
+automatically finds `designs/<platform>/<case>/config2d.mk`. A fresh case needs
+its RTL, libraries and configuration plus a working Yosys/OpenROAD toolchain;
+it does not need any previous Taiwei3D run, TSV map or partition result.
+
+On the first run it builds an isolated 2D seed using synthesis, floorplan and
+IO placement, then loads the resulting OpenDB database and exports the exact
+`BLOCK*` macro instance/master names. It does not run TritonPart or launch any
+3D candidate jobs. The resulting catalog is the authority for matching the
+candidate names; an old TSV cannot introduce names absent from that catalog.
+
+Preparation is stored under `<output-dir>/preparation/`, with `prepare.log`,
+`macro_names.tsv`, `seed_info.json` and separate `results/`, `logs/`, `objects/`
+and `reports/` directories. After all solution files are exported successfully,
+the generator deletes this preparation directory by default. Failed runs keep
+it, including the logs, for debugging. Candidate inputs, solution folders,
+manifests and normal result variants are retained.
+
+Use `--keep-preparation` to retain the 2D seed cache for later calls. The cache
+is reused when its config and exported files match the saved fingerprints;
+use `--rebuild-seed` after RTL or library changes. A small lock file next to
+the preparation directory coordinates concurrent generators during cleanup.
+
+For a candidate JSON outside the standard case layout, specify the 2D config:
+
+```bash
+python3 generate_macro_partitions.py /path/to/candidates.json \
+  --design-config designs/nangate45_3D/bp_be/config2d.mk
+```
+
+`--output-dir` selects the export directory; `--preparation-dir` selects the
+shared preparation directory. Explicit `--name-map` or `--reference-partition`
+options retain offline conversion without starting EDA tools. Outside the
+standard case layout, an adjacent TSV is also accepted when no design config
+is supplied. All candidates are checked for ambiguous names, missing macros
+and duplicate assignments before writing. Re-running refreshes generated
+files without removing unrelated files. If solution identities or the number
+of folders would conflict with an earlier export, use a fresh output directory.
+
 The [BP_BE example](designs/nangate45_3D/bp_be/macro_partition.txt) assigns four
-data memories to upper and the other six memories to bottom. With the matching
+data memories to bottom and the other six memories to upper. With the matching
 2D seed files already present in the 3D results directory, generate the views
 directly:
 

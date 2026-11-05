@@ -118,19 +118,19 @@ test macro-input-2 {external mode reads the selected file directly} -body {
   list [dict get $inputs external_macros] [expr {[dict get $inputs partition_path] eq $::env(MACRO_PARTITION_FILE)}]
 } -result {1 1}
 
-test macro-bp-be-1 {the converted solution preserves both supplied groups} -body {
+test macro-bp-be-1 {bottom-first candidate groups use Taiwei3D physical labels} -body {
   set imported [::pin3d::parse_macro_partition_file $::env(MACRO_PARTITION_FILE)]
   set expected [dict create \
-    be_mmu/dcache/data_mem_0__data_mem/macro_mem/mem 0 \
-    be_mmu/dcache/data_mem_7__data_mem/macro_mem/mem 0 \
-    be_mmu/dcache/data_mem_5__data_mem/macro_mem/mem 0 \
-    be_mmu/dcache/data_mem_6__data_mem/macro_mem/mem 0 \
-    be_mmu/dcache/stat_mem/macro_mem/mem 1 \
-    be_mmu/dcache/tag_mem/macro_mem/mem 1 \
-    be_mmu/dcache/data_mem_4__data_mem/macro_mem/mem 1 \
-    be_mmu/dcache/data_mem_2__data_mem/macro_mem/mem 1 \
-    be_mmu/dcache/data_mem_3__data_mem/macro_mem/mem 1 \
-    be_mmu/dcache/data_mem_1__data_mem/macro_mem/mem 1]
+    be_mmu/dcache/data_mem_0__data_mem/macro_mem/mem 1 \
+    be_mmu/dcache/data_mem_7__data_mem/macro_mem/mem 1 \
+    be_mmu/dcache/data_mem_5__data_mem/macro_mem/mem 1 \
+    be_mmu/dcache/data_mem_6__data_mem/macro_mem/mem 1 \
+    be_mmu/dcache/stat_mem/macro_mem/mem 0 \
+    be_mmu/dcache/tag_mem/macro_mem/mem 0 \
+    be_mmu/dcache/data_mem_4__data_mem/macro_mem/mem 0 \
+    be_mmu/dcache/data_mem_2__data_mem/macro_mem/mem 0 \
+    be_mmu/dcache/data_mem_3__data_mem/macro_mem/mem 0 \
+    be_mmu/dcache/data_mem_1__data_mem/macro_mem/mem 0]
   expr {$imported eq $expected}
 } -result 1
 

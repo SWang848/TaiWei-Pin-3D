@@ -1,0 +1,1809 @@
+{
+  "pareto_archive": {
+    "description": "Complete Pareto archive containing all non-dominated solutions found during HMSA optimization",
+    "solutions": {
+      "(37, 21)": {
+        "cost": [
+          1232,
+          1501102.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 9)": {
+        "cost": [
+          1266,
+          579091.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 1)": {
+        "cost": [
+          1482,
+          309009.5343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 11)": {
+        "cost": [
+          1712,
+          649518.9656410217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 19)": {
+        "cost": [
+          1225,
+          1231020.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 26)": {
+        "cost": [
+          1031,
+          2189548.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 31)": {
+        "cost": [
+          686,
+          3148077.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 27)": {
+        "cost": [
+          902,
+          2459630.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 8)": {
+        "cost": [
+          1478,
+          542573.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 21)": {
+        "cost": [
+          1011,
+          1501102.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 32)": {
+        "cost": [
+          689,
+          3418159.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 32)": {
+        "cost": [
+          622,
+          3418159.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(32, 35)": {
+        "cost": [
+          509,
+          4376687.760921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 27)": {
+        "cost": [
+          1264,
+          2459630.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 32)": {
+        "cost": [
+          831,
+          3418159.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 27)": {
+        "cost": [
+          1517,
+          2459630.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 21)": {
+        "cost": [
+          1783,
+          1501102.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 31)": {
+        "cost": [
+          1015,
+          3148077.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 34)": {
+        "cost": [
+          723,
+          4106605.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 0)": {
+        "cost": [
+          1806,
+          272491.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 0)": {
+        "cost": [
+          1471,
+          272491.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 8)": {
+        "cost": [
+          1257,
+          542573.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(31, 37)": {
+        "cost": [
+          390,
+          5101652.034358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 21)": {
+        "cost": [
+          1528,
+          1501102.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 19)": {
+        "cost": [
+          1472,
+          1231020.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 35)": {
+        "cost": [
+          689,
+          4376687.760921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 35)": {
+        "cost": [
+          575,
+          4376687.760921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 26)": {
+        "cost": [
+          1478,
+          2189548.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 22)": {
+        "cost": [
+          1020,
+          1537620.1593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 22)": {
+        "cost": [
+          1286,
+          1537620.1593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 11)": {
+        "cost": [
+          1824,
+          649518.9656410217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 5)": {
+        "cost": [
+          1554,
+          415954.7390785217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(27, 37)": {
+        "cost": [
+          198,
+          5335216.260921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 27)": {
+        "cost": [
+          748,
+          2459630.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(30, 35)": {
+        "cost": [
+          328,
+          4376687.760921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(28, 37)": {
+        "cost": [
+          232,
+          5335216.260921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 31)": {
+        "cost": [
+          836,
+          3148077.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(32, 34)": {
+        "cost": [
+          486,
+          4143123.5343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 31)": {
+        "cost": [
+          630,
+          3184595.0343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 34)": {
+        "cost": [
+          572,
+          4106605.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(33, 37)": {
+        "cost": [
+          599,
+          5065134.135921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 8)": {
+        "cost": [
+          1839,
+          542573.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 5)": {
+        "cost": [
+          1887,
+          415954.7390785217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 26)": {
+        "cost": [
+          962,
+          2189548.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 35)": {
+        "cost": [
+          876,
+          4376687.760921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(30, 37)": {
+        "cost": [
+          327,
+          5371734.159358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 37)": {
+        "cost": [
+          723,
+          5101652.034358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(32, 37)": {
+        "cost": [
+          543,
+          5101652.034358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 9)": {
+        "cost": [
+          1534,
+          579091.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(21, 39)": {
+        "cost": [
+          58,
+          6293744.760921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(32, 32)": {
+        "cost": [
+          472,
+          3418159.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(28, 39)": {
+        "cost": [
+          216,
+          6060180.534358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(36, 34)": {
+        "cost": [
+          1090,
+          4106605.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(25, 37)": {
+        "cost": [
+          140,
+          5371734.159358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(29, 35)": {
+        "cost": [
+          270,
+          4413205.659358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 31)": {
+        "cost": [
+          1228,
+          3148077.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(34, 28)": {
+        "cost": [
+          690,
+          2496148.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 22)": {
+        "cost": [
+          953,
+          1537620.1593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(29, 39)": {
+        "cost": [
+          272,
+          6023662.635921478
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem"
+          ]
+        ]
+      },
+      "(0, 39)": {
+        "cost": [
+          0,
+          6330262.659358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          []
+        ]
+      },
+      "(36, 28)": {
+        "cost": [
+          1021,
+          2496148.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 1)": {
+        "cost": [
+          1415,
+          309009.5343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 19)": {
+        "cost": [
+          1169,
+          1267538.0343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 28)": {
+        "cost": [
+          844,
+          2496148.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 4)": {
+        "cost": [
+          1829,
+          379436.8406410217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 28)": {
+        "cost": [
+          1215,
+          2496148.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 4)": {
+        "cost": [
+          1496,
+          379436.8406410217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(26, 37)": {
+        "cost": [
+          148,
+          5371734.159358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 32)": {
+        "cost": [
+          1235,
+          3418159.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(31, 35)": {
+        "cost": [
+          451,
+          4413205.659358978
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 20)": {
+        "cost": [
+          1887,
+          1337965.3406410217
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 9)": {
+        "cost": [
+          1199,
+          579091.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(31, 32)": {
+        "cost": [
+          414,
+          3454677.1593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 22)": {
+        "cost": [
+          2159,
+          1644565.3640785217
+        ],
+        "solution": [
+          [],
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 27)": {
+        "cost": [
+          1004,
+          2459630.7609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(36, 32)": {
+        "cost": [
+          1014,
+          3418159.2609214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(38, 22)": {
+        "cost": [
+          1478,
+          1537620.1593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 9)": {
+        "cost": [
+          1791,
+          579091.6593589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(37, 26)": {
+        "cost": [
+          1215,
+          2189548.6359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 19)": {
+        "cost": [
+          1805,
+          1231020.1359214783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(39, 1)": {
+        "cost": [
+          1782,
+          309009.5343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      },
+      "(35, 34)": {
+        "cost": [
+          847,
+          4143123.5343589783
+        ],
+        "solution": [
+          [
+            "be_mmu_dcache_stat_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_1__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_5__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_4__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_6__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_7__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_2__data_mem_macro_mem_mem"
+          ],
+          [
+            "be_mmu_dcache_tag_mem.macro_mem.mem",
+            "be_mmu_dcache_data_mem_3__data_mem_macro_mem_mem",
+            "be_mmu_dcache_data_mem_0__data_mem_macro_mem_mem"
+          ]
+        ]
+      }
+    }
+  }
+}

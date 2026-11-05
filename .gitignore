@@ -41,3 +41,9 @@ platforms/process_scripts
 # temp cases
 work.codex/
 .pbs_*
+
+# Track candidate inputs for each platform/design; ignore generated outputs.
+/partition_experiments/**
+!/partition_experiments/*/
+!/partition_experiments/*/*/
+!/partition_experiments/*/*/candidates.json

@@ -61,6 +61,7 @@ export LOG_DIR     ?= $(WORK_HOME)/logs/$(PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VA
 export OBJECTS_DIR ?= $(WORK_HOME)/objects/$(PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)
 export REPORTS_DIR ?= $(WORK_HOME)/reports/$(PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)
 export RESULTS_DIR ?= $(WORK_HOME)/results/$(PLATFORM)/$(DESIGN_NICKNAME)/$(FLOW_VARIANT)
+export MACRO_NAMES_FILE ?= $(RESULTS_DIR)/macro_names.tsv
 
 # ---------------- Shell / time ----------------
 SHELL       := /usr/bin/env bash
@@ -306,6 +307,19 @@ ord-preplace:
 	@echo "[ORD] Pre-place wrapper"
 	@$(MAKE) --no-print-directory ord-floorplan
 	@$(MAKE) --no-print-directory ord-io
+
+.PHONY: ord-check-macro-tools
+ord-check-macro-tools:
+	@command -v "$(YOSYS_EXE)" >/dev/null 2>&1 || { echo "[ERROR][ORD] Yosys is unavailable; set YOSYS_EXE or update PATH"; exit 1; }
+	@command -v "$(OPENROAD_EXE)" >/dev/null 2>&1 || { echo "[ERROR][ORD] OpenROAD is unavailable; set OPENROAD_EXE or update PATH"; exit 1; }
+	@$(YOSYS_EXE) -V
+	@$(OPENROAD_EXE) -version
+
+.PHONY: ord-export-macro-names
+ord-export-macro-names:
+	@echo "[ORD] Export macro names from the loaded 2D seed"
+	@$(call _mkstdirs)
+	$(call _or,$(OPENROAD_SCRIPTS_DIR)/export_macro_names.tcl,$(LOG_DIR)/2_export_macro_names.log)
 
 .PHONY: ord-tier-partition
 ord-tier-partition:
