@@ -24,6 +24,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("case", nargs="?", default="bp_be")
     parser.add_argument("parallel", nargs="?", type=positive_int, default=4)
+    parser.add_argument("--limit", type=positive_int,
+                        help="run at most this many partitions, in solution-ID order")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     env = os.environ
@@ -40,6 +42,8 @@ def main():
     partitions = sorted((case_dir / "solutions").glob("s[0-9]*/macro_partition.txt"))
     if not partitions:
         raise ValueError(f"No prepared partitions in {case_dir / 'solutions'}")
+    if args.limit is not None:
+        partitions = partitions[:args.limit]
     solutions = []
     for partition in partitions:
         solution_id = partition.parent.name
@@ -86,6 +90,8 @@ def main():
                 str(run_dir.relative_to(repo)), env["CC_STD_CELL_TIER"],
                 str(positive_int(env["CC_OUTER_ITERATIONS"]))]
     print(f"Prepared solutions: {len(solutions)}; maximum concurrent candidates: {args.parallel}")
+    if args.limit is not None:
+        print("Selected solutions: " + ", ".join(item["solution_id"] for item in solutions))
     print(f"Run directory: {run_dir}")
     if args.dry_run:
         print(shlex.join(command))

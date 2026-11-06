@@ -62,6 +62,40 @@ One Slurm array is submitted. Each task uses a prepared partition and the existi
 bootstrap. The existing SIF is reused. Defaults are 8 CPUs, 32 GB memory and
 12 hours per candidate.
 
+For a pilot with only the first two solution IDs, preview and then submit:
+
+```bash
+bash cc_script/run.sh bp_be 2 --limit 2 --dry-run
+bash cc_script/run.sh bp_be 2 --limit 2
+```
+
+The positional `2` caps concurrency; `--limit 2` limits the total number of
+partitions selected in solution-ID order. Without `--limit`, every prepared
+partition is queued. The preview prints the selected IDs and `--array=0-1%2`.
+Slurm schedules the two tasks independently, so they may start at different times.
+Each task uses the CPU, memory and time settings in [config.sh](config.sh).
+
+Run submission from the host shell on an allocated compute node, outside
+Apptainer, with a Python module loaded. The batch jobs launch Apptainer themselves.
+Set `CC_ACCOUNT` in [config.sh](config.sh) to your verified Slurm account.
+
+After both tasks finish, inspect each task's efficiency and the array's accounting:
+
+```bash
+seff ARRAY_JOB_ID_0
+seff ARRAY_JOB_ID_1
+sacct -j ARRAY_JOB_ID --format=JobID,State,ExitCode,Elapsed,AllocCPUS,TotalCPU,ReqMem,MaxRSS
+```
+
+Keep step rows in the accounting output: peak memory often appears on `.batch`.
+Also check each solution's `status.txt` for `state=COMPLETED` and its final
+`openroad_eval.json`. Two successful candidates check the pilot paths, not every
+design or partition. Use completed-job elapsed time and peak memory with some
+headroom for the next request; timeouts and out-of-memory failures give lower
+bounds. CPU efficiency helps identify over-allocation; compare another CPU count
+before scaling out because some flow stages are serial. Two partitions provide
+an initial estimate; other partitions may need more resources.
+
 ## Saved results
 
 Submission prints the run directory and array ID. The run directory contains:

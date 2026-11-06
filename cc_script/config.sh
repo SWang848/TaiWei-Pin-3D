@@ -1,7 +1,7 @@
 # Set your CC project path here.
 export CC_BASE="/home/shang8/projects/aip-mtaylor3/shang8"
 # Optional Slurm allocation. Leave empty to use the cluster's default account.
-export CC_ACCOUNT=""
+export CC_ACCOUNT="aip-mtaylor3"
 
 # Fixed paths. Edit individually if the folders are in different locations.
 export TAIWEI_BASE="$CC_BASE/TaiWei-Pin-3D"
