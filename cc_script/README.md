@@ -1,105 +1,90 @@
-# Compute Canada / Alliance partition experiments
+# Run ready partition results on CC
 
-These scripts evaluate every candidate in a Pareto archive using the full
-OpenROAD 3D flow. They reuse the prebuilt `orfs.sif`; they never build a
-container or request a GPU for this CPU workload.
+The partition preparation is an input to this workflow. Submission queues only
+the parallel 3D evaluation jobs.
 
-## Upload layout
+## 1. Have the input ready
 
-Set `CC_BASE` to the same absolute directory used for the initial upload:
+For `bp_be`, the existing input folder must contain:
 
 ```text
-$CC_BASE/
-  containers/orfs.sif
-  ORFS-Research/tools/install/...
-  TaiWei-Pin-3D/cc_script/...
+partition_experiments/nangate45_3D/bp_be/
+  preparation/results/
+    1_synth.sdc
+    2_2_floorplan_io.def
+    2_2_floorplan_io.v
+  solutions/
+    s0000/macro_partition.txt
+    s0000/solution.json           Optional source key and cost
+    s0001/macro_partition.txt
+    s0001/solution.json
+    ...
 ```
 
-The installed OpenROAD and Yosys must already include any compiled source
-changes. Use Git or rsync to upload this directory before submitting.
-
-## Submit from the cluster login node
+The normal [generate_macro_partitions.py](../generate_macro_partitions.py) command
+now produces this complete input layout and retains the 2D seed by default:
 
 ```bash
-export CC_BASE="/project/YOUR_ALLOCATION/YOUR_USERNAME/taiwei"
-export CC_ACCOUNT="aip-YOUR_GROUP"
-cd "$CC_BASE/TaiWei-Pin-3D"
-
-# Preview the job commands without creating files or submitting jobs.
-python3 cc_script/submit_partitions.py --case bp_be --max-parallel 4 --dry-run
-
-# Build the seed once, then run up to four candidates concurrently.
-python3 cc_script/submit_partitions.py --case bp_be --max-parallel 4
-
-# Another case, with explicit resource limits per job.
-python3 cc_script/submit_partitions.py --case bp_fe --max-parallel 8 \
-  --cpus-per-task 8 --mem 32G --time 12:00:00
+python3 generate_macro_partitions.py partition_experiments/nangate45_3D/bp_be/candidates.json
 ```
 
-The submission helper uses only the Python standard library and performs no
-EDA work on the login node. If `python3` is unavailable, load your cluster's
-Python module first. No interactive `salloc` session is needed for submission.
-`--account` overrides `CC_ACCOUNT`; `CC_IMAGE` overrides the default SIF path.
-Resources and time limits are starting defaults, not measured requirements.
+Run that preparation separately before submitting this workflow. Its matching
+seed and solution files are then ready for the CC runner; no extra keep flag is
+needed. Offline name-map/reference conversions still need a matching seed supplied
+separately. The CC scripts evaluate the ready inputs without regenerating them.
 
-## What runs
+Only the exported partitions and matching seed are required. Original candidate
+JSON and macro-name alias maps are no longer inputs to job submission. Existing
+solution IDs are preserved, including gaps in their numbering.
 
-1. A unique run directory snapshots the candidate JSON and any adjacent name
-   aliases. Each submission has its own snapshot, seed, and generated solutions.
-2. A preparation job calls [the existing generator](../generate_macro_partitions.py)
-   with `--keep-preparation`, synthesizing and floorplanning the case once.
-3. A Slurm array waits for preparation to finish successfully. Array index 0
-   evaluates `s0000`, index 1 evaluates `s0001`, and so on. The `%N` array limit
-   controls the maximum concurrent candidate runs; actual concurrency also
-   depends on cluster availability. If preparation fails, the dependent array
-   is cancelled instead of remaining pending indefinitely.
-4. Each task copies the seed into a private flow variant, imports its macro
-   partition, and runs [the maintained OpenROAD launcher](../test/openroad/ORD_3D_NEW_FLOW.sh)
-   from `ord-pre` through `ord-final`. It skips repeated synthesis and TritonPart.
+## 2. Set paths once
 
-Every exported solution is evaluated, including duplicates identified by the
-generator. Standard cells use the bottom tier by default; set
-`--std-cell-tier upper` to change this. `--outer-iterations N` controls placement
-iterations. Candidate inputs are frozen, but the source code and installed
-tools are mounted: keep those fixed while comparing jobs from one submission.
+Edit [config.sh](config.sh) with your fixed CC paths: `CC_BASE`, `TAIWEI_BASE`,
+`ORFS_BASE` and `CC_IMAGE`. Leave `CC_ACCOUNT` empty to use Slurm's default
+allocation, or set it if the cluster requires an explicit project.
+CPU, memory, time, platform and tier settings are in the same file.
 
-## Outputs and monitoring
+## 3. Run from the repository on CC
 
-For a printed run directory such as
-`partition_experiments/nangate45_3D/bp_be/cc_runs/<run-id>/`:
+```bash
+# Evaluate the ready bp_be partitions, with at most four concurrent jobs.
+bash cc_script/run.sh bp_be 4
 
-- `submission.json`: source keys, costs, resource settings, and Slurm job IDs.
-- `manifest.tsv`, `solutions/`, `preparation/`: generator outputs and shared seed.
-- `slurm/prepare-<job-id>.out`: preparation output.
-- `slurm/partition-<array-id>_<index>.out`: one log per candidate.
-- `task_status/`: per-attempt TSV files with the solution, variant, state,
-  exit code, and final metrics path. They are written independently, with no
-  shared append file. Jobs terminated before their shell can clean up may
-  leave a RUNNING entry; Slurm accounting is authoritative in that case.
+# Another prepared case.
+bash cc_script/run.sh bp_fe 4
 
-Each task's variant is `cc_<array-id>_s<index>_r<restart-count>`. Outputs use the
-normal repository trees:
-
-```text
-results/<platform>/<case>/<variant>/
-logs/<platform>/<case>/<variant>/
-objects/<platform>/<case>/<variant>/
-reports/<platform>/<case>/<variant>/openroad_eval.json
+# Check the ready inputs and preview without submitting.
+bash cc_script/run.sh bp_be 4 --dry-run
 ```
+
+One Slurm array is submitted. Each task uses a prepared partition and the existing
+2D seed, starting the 3D OpenROAD flow without the 2D synthesis/partitioning
+bootstrap. The existing SIF is reused. Defaults are 8 CPUs, 32 GB memory and
+12 hours per candidate.
+
+## Saved results
+
+Submission prints the run directory and array ID. The run directory contains:
+
+- `inputs.tar`: a frozen copy of the prepared seed and partition inputs.
+- `solutions.txt`: the mapping from array indices to your original solution IDs.
+- `submission.json`: solution metadata and array job ID.
+- `slurm/`: scheduler logs.
+- `results/s0000/r0/`: `status.txt`, `openroad_eval.json`, `run.log` and `output.tar`.
+
+`solution.json` is optional; when present its source key and cost are recorded.
+The `r0` directory is the first attempt; Slurm requeues use `r1`, `r2`, etc.
 
 ```bash
 squeue --array --jobs=ARRAY_JOB_ID
-sacct -j ARRAY_JOB_ID --format=JobID,State,ExitCode,Elapsed,MaxRSS
 ```
 
-Use a new submission to rerun a failed experiment. A fresh array ID prevents
-overwriting earlier outputs. Slurm requeues also receive a new variant suffix.
-The scripts perform no cleanup of previous results and no Cadence evaluation.
+Each job stages the runtime files, installed tools, seed and its selected partition
+into `$SLURM_TMPDIR`. Synthesis is already complete; 3D placement, routing and
+reports are written on local temporary storage. At exit, the job archives its
+outputs and copies them and the metrics back to the shared run directory.
+Keep the shared source and installed tools fixed while comparing one array's jobs.
 
-## Files
-
-- [submit_partitions.py](submit_partitions.py): validate inputs and submit the dependency chain.
-- [prepare_partitions.sbatch](prepare_partitions.sbatch): one shared 2D preparation job.
-- [run_partitions.sbatch](run_partitions.sbatch): one full 3D run per array task.
-- [common.sh](common.sh): shared host-side Apptainer launch configuration.
-- [container_job.sh](container_job.sh): tool setup, seed copying, and task execution.
+A warning five minutes before the time limit triggers an attempt to save partial
+outputs. Node failure, SIGKILL or unavailable shared storage can prevent recovery.
+The implementation in `lib/` handles staging, execution and copy-back.

@@ -1,7 +1,10 @@
 """Run with python3 -m unittest discover -s tests/unit -p test_generate_macro_partitions.py."""
 
 import csv
+from contextlib import redirect_stdout
+import io
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -48,6 +51,7 @@ class GenerateMacroPartitionsTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Generated 2 solution folders", result.stdout)
+        self.assertIn("Partition-only export", result.stdout)
         self.assertEqual(self.candidates.read_bytes(), source)
         for index, (key, record) in enumerate(self.records.items()):
             solution_id = f"s{index:04d}"
@@ -199,7 +203,7 @@ class FreshDesignPreparationTests(unittest.TestCase):
         self.assertNotIn("ord-tier-partition", command)
         self.assertNotIn("ord-3d-flow-2dpart", command)
         values = dict(arg.split("=", 1) for arg in command if "=" in arg)
-        preparation = self.case / "preparation"
+        preparation = Path(values["WORK_HOME"])
         for variable, directory in (("RESULTS_DIR", "results"), ("LOG_DIR", "logs"),
                                     ("OBJECTS_DIR", "objects"), ("REPORTS_DIR", "reports")):
             self.assertEqual(Path(values[variable]), preparation / directory)
@@ -228,15 +232,56 @@ class FreshDesignPreparationTests(unittest.TestCase):
         self.assertEqual([row["master_name"] for row in rows], ["NEW_SRAM_A", "NEW_SRAM_B"])
         self.assertEqual(len(self.commands), 1)
         self.assertFalse((self.repo / "results").exists())
-        self.assertFalse((self.case / "preparation").exists())
+        for name in generator.CC_SEED_FILES:
+            self.assertEqual((self.case / "preparation/results" / name).read_text(), "mock 2D tool output\n")
 
     def test_completed_seed_is_cached_and_rebuild_flag_runs_preparation_again(self):
         with mock.patch.object(generator.subprocess, "run", side_effect=self.successful_make):
-            generator.generate(self.candidates, keep_preparation=True)
-            generator.generate(self.candidates, keep_preparation=True)
+            generator.generate(self.candidates)
+            generator.generate(self.candidates)
             self.assertEqual(len(self.commands), 1)
-            generator.generate(self.candidates, rebuild_seed=True, keep_preparation=True)
+            generator.generate(self.candidates, rebuild_seed=True)
         self.assertEqual(len(self.commands), 2)
+
+    def test_default_cli_output_is_accepted_by_cc_submission(self):
+        output = io.StringIO()
+        with mock.patch.object(sys, "argv", ["generate_macro_partitions.py", str(self.candidates)]):
+            with mock.patch.object(generator.subprocess, "run", side_effect=self.successful_make):
+                with redirect_stdout(output):
+                    self.assertEqual(generator.main(), 0)
+        self.assertIn("2D seed inputs for CC evaluation", output.getvalue())
+        environment = {
+            **os.environ, "TAIWEI_BASE": str(self.repo), "CC_PLATFORM": "new_platform",
+            "CC_CPUS": "1", "CC_MEMORY": "1G", "CC_TIME": "01:00:00",
+            "CC_STD_CELL_TIER": "bottom", "CC_OUTER_ITERATIONS": "1",
+        }
+        result = subprocess.run(
+            [sys.executable, str(REPO / "cc_script/lib/submit.py"), "new_case", "2", "--dry-run"],
+            env=environment, text=True, capture_output=True, check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("--array=0-0%2", result.stdout)
+        self.assertFalse((self.case / "cc_runs").exists())
+
+    def test_custom_cache_publishes_seed_into_the_output_directory(self):
+        cache = self.repo / "private_seed_cache"
+        with mock.patch.object(generator.subprocess, "run", side_effect=self.successful_make):
+            generator.generate(self.candidates, preparation_dir=cache)
+        for name in generator.CC_SEED_FILES:
+            self.assertEqual((cache / "results" / name).read_bytes(),
+                             (self.case / "preparation/results" / name).read_bytes())
+        self.assertTrue((cache / "seed_info.json").is_file())
+        self.assertTrue((self.case / "solutions/s0000/macro_partition.txt").is_file())
+
+    def test_cli_can_explicitly_discard_the_seed(self):
+        output = io.StringIO()
+        with mock.patch.object(sys, "argv", ["generate_macro_partitions.py", str(self.candidates), "--discard-preparation"]):
+            with mock.patch.object(generator.subprocess, "run", side_effect=self.successful_make):
+                with redirect_stdout(output):
+                    self.assertEqual(generator.main(), 0)
+        self.assertFalse((self.case / "preparation").exists())
+        self.assertTrue((self.case / "solutions/s0000/macro_partition.txt").is_file())
+        self.assertIn("Partition-only export", output.getvalue())
 
     def test_config_change_invalidates_the_cached_seed(self):
         with mock.patch.object(generator.subprocess, "run", side_effect=self.successful_make):
@@ -285,11 +330,11 @@ class FreshDesignPreparationTests(unittest.TestCase):
         self.assertFalse((self.case / "solutions").exists())
         self.assertTrue((self.case / "preparation/prepare.log").is_file())
 
-    def test_cached_preparation_is_removed_after_a_successful_default_run(self):
+    def test_cached_preparation_can_be_explicitly_discarded(self):
         with mock.patch.object(generator.subprocess, "run", side_effect=self.successful_make):
             generator.generate(self.candidates, keep_preparation=True)
             self.assertTrue((self.case / "preparation").is_dir())
-            generator.generate(self.candidates)
+            generator.generate(self.candidates, keep_preparation=False)
         self.assertEqual(len(self.commands), 1)
         self.assertFalse((self.case / "preparation").exists())
         self.assertTrue((self.case / "solutions/s0000/macro_partition.txt").is_file())
@@ -324,7 +369,7 @@ class FreshDesignPreparationTests(unittest.TestCase):
             with self.subTest(unsafe=unsafe):
                 with mock.patch.object(generator.subprocess, "run") as run:
                     with self.assertRaisesRegex(ValueError, "Preparation directory must not contain"):
-                        generator.generate(self.candidates, preparation_dir=unsafe)
+                        generator.generate(self.candidates, preparation_dir=unsafe, keep_preparation=False)
                     run.assert_not_called()
         self.assertTrue(self.candidates.is_file())
         self.assertTrue(self.config.is_file())
@@ -336,7 +381,7 @@ class FreshDesignPreparationTests(unittest.TestCase):
         marker.write_text("retain unrelated files")
         with mock.patch.object(generator.subprocess, "run") as run:
             with self.assertRaisesRegex(ValueError, "contains unrelated files"):
-                generator.generate(self.candidates)
+                generator.generate(self.candidates, keep_preparation=False)
             run.assert_not_called()
         self.assertEqual(marker.read_text(), "retain unrelated files")
 

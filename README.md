@@ -247,15 +247,17 @@ candidate names; an old TSV cannot introduce names absent from that catalog.
 
 Preparation is stored under `<output-dir>/preparation/`, with `prepare.log`,
 `macro_names.tsv`, `seed_info.json` and separate `results/`, `logs/`, `objects/`
-and `reports/` directories. After all solution files are exported successfully,
-the generator deletes this preparation directory by default. Failed runs keep
-it, including the logs, for debugging. Candidate inputs, solution folders,
-manifests and normal result variants are retained.
+and `reports/` directories. The generator retains it by default. In particular,
+`preparation/results/1_synth.sdc`, `2_2_floorplan_io.def`, and
+`2_2_floorplan_io.v`, together with `solutions/`, are the ready inputs for
+the [CC evaluation scripts](cc_script/README.md).
 
-Use `--keep-preparation` to retain the 2D seed cache for later calls. The cache
-is reused when its config and exported files match the saved fingerprints;
-use `--rebuild-seed` after RTL or library changes. A small lock file next to
-the preparation directory coordinates concurrent generators during cleanup.
+The cache is reused when its config and exported files match the saved
+fingerprints; use `--rebuild-seed` after RTL or library changes.
+`--keep-preparation` remains accepted for compatibility. Use
+`--discard-preparation` only when the retained 2D seed is not needed; failed
+runs always retain preparation and logs for debugging. A small lock file next
+to the preparation directory coordinates concurrent generators during cleanup.
 
 For a candidate JSON outside the standard case layout, specify the 2D config:
 
@@ -265,8 +267,10 @@ python3 generate_macro_partitions.py /path/to/candidates.json \
 ```
 
 `--output-dir` selects the export directory; `--preparation-dir` selects the
-shared preparation directory. Explicit `--name-map` or `--reference-partition`
-options retain offline conversion without starting EDA tools. Outside the
+shared preparation directory. A custom preparation cache still exports the three
+CC seed inputs into `<output-dir>/preparation/results/`. Explicit `--name-map`
+or `--reference-partition` options perform offline partition conversion without
+building a seed; provide the matching seed separately for CC evaluation. Outside the
 standard case layout, an adjacent TSV is also accepted when no design config
 is supplied. All candidates are checked for ambiguous names, missing macros
 and duplicate assignments before writing. Re-running refreshes generated

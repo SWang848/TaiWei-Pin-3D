@@ -10,7 +10,9 @@ seed and read actual macro names from OpenROAD before converting candidates.
 No previous run, name map, reference partition or TritonPart result is needed.
 Candidate solution[0] is bottom and solution[1] is upper. Exported Taiwei3D
 labels are 1 for bottom and 0 for upper. No 3D candidate jobs are launched.
-Preparation is removed after successful export unless --keep-preparation is set.
+The 2D seed is retained under preparation/results beside the solutions so the
+output is ready for CC evaluation. Use --discard-preparation for partition-only
+export when the retained seed is not needed.
 """
 
 import argparse
@@ -34,6 +36,7 @@ PREPARATION_CONTENTS = {
     ".prepare.lock", "macro_names.tsv", "seed_info.json", "prepare.log",
     "results", "logs", "objects", "reports",
 }
+CC_SEED_FILES = ("1_synth.sdc", "2_2_floorplan_io.def", "2_2_floorplan_io.v")
 
 
 def unique_object(pairs):
@@ -414,8 +417,27 @@ def check_preparation_cleanup_path(preparation_dir, candidates, output_dir, conf
             )
 
 
+def export_cc_seed(preparation_dir, output_dir):
+    """Publish the CC handoff even when the reusable cache is elsewhere."""
+    destination = output_dir / "preparation" / "results"
+    for name in CC_SEED_FILES:
+        source = preparation_dir / "results" / name
+        target = destination / name
+        if source.resolve() == target.resolve():
+            continue
+        destination.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(dir=destination, delete=False) as handle:
+            temporary = Path(handle.name)
+        try:
+            shutil.copy2(source, temporary)
+            os.replace(temporary, target)
+        finally:
+            if temporary.exists():
+                temporary.unlink()
+
+
 def generate(candidates, output_dir=None, name_map=None, reference_partition=None, *,
-             design_config=None, preparation_dir=None, rebuild_seed=False, keep_preparation=False):
+             design_config=None, preparation_dir=None, rebuild_seed=False, keep_preparation=True):
     candidates = Path(candidates).resolve()
     output_dir = Path(output_dir).resolve() if output_dir is not None else candidates.parent
     if (name_map is not None or reference_partition is not None) and (design_config is not None or rebuild_seed):
@@ -437,6 +459,8 @@ def generate(candidates, output_dir=None, name_map=None, reference_partition=Non
         files, count = prepare_files(candidates, aliases, masters)
         # Validate the entire archive and all existing identities before writing.
         check_destination(output_dir, files)
+        if config is not None and keep_preparation:
+            export_cc_seed(preparation_dir, output_dir)
         for relative, text in files.items():
             write_if_changed(output_dir / relative, text)
         # Only a successful preparation and complete export reach cleanup.
@@ -455,7 +479,10 @@ def main():
     parser.add_argument("--design-config", type=Path, help="2D design config; inferred from partition_experiments/<platform>/<case>/ by default")
     parser.add_argument("--preparation-dir", type=Path, help="Private 2D preparation directory (default: <output-dir>/preparation)")
     parser.add_argument("--rebuild-seed", action="store_true", help="Rebuild cached preparation after RTL or library changes")
-    parser.add_argument("--keep-preparation", action="store_true", help="Keep the 2D seed and logs after success for later reuse (default: delete after successful export)")
+    preparation = parser.add_mutually_exclusive_group()
+    preparation.add_argument("--keep-preparation", action="store_true", help="Retain the 2D seed and logs for CC evaluation and reuse (default)")
+    preparation.add_argument("--discard-preparation", dest="keep_preparation", action="store_false", help="Remove the 2D cache after export when only partition files are needed")
+    parser.set_defaults(keep_preparation=True)
     names = parser.add_mutually_exclusive_group()
     names.add_argument("--name-map", type=Path, help="Verified TSV macro name map")
     names.add_argument("--reference-partition", type=Path, help="Existing partition file containing every macro's exact name")
@@ -469,6 +496,11 @@ def main():
     except (OSError, ValueError, RuntimeError) as error:
         parser.exit(2, f"error: {error}\n")
     print(f"Generated {count} solution folders under {output_dir / 'solutions'}")
+    seed = output_dir / "preparation" / "results"
+    if all((seed / name).is_file() for name in CC_SEED_FILES):
+        print(f"2D seed inputs for CC evaluation: {seed}")
+    else:
+        print("Partition-only export: a matching 2D seed is still required for CC evaluation.")
     print("Metadata fields: solution_id, source_index, source_key, cost")
     print("Candidate groups: solution[0] -> bottom (label 1); solution[1] -> upper (label 0).")
     print("Physical tier labels: 0 = upper; 1 = bottom. No 3D candidate jobs launched.")
