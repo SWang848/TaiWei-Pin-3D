@@ -27,6 +27,10 @@ export PATH="$ORFS_DIR/tools/install/OpenROAD/bin:$ORFS_DIR/tools/install/yosys/
 export PYTHON_EXE="$(command -v python3)"
 source ./env.sh
 
+# Fail before preparing the flow if a staged tool's shared libraries are missing.
+printf '[cc] checking OpenROAD runtime\n'
+"$OPENROAD_EXE" -version
+
 solution_id="$6"
 variant="$7"
 [[ "$solution_id" =~ ^s[0-9]+$ && "$variant" =~ ^[A-Za-z0-9_]+$ ]] || fail 'Invalid solution or variant.'

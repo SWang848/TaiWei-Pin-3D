@@ -117,6 +117,9 @@ Each job stages the runtime files, installed tools, seed and its selected partit
 into `$SLURM_TMPDIR`. Synthesis is already complete; 3D placement, routing and
 reports are written on local temporary storage. At exit, the job archives its
 outputs and copies them and the metrics back to the shared run directory.
+The staged ORFS tree includes `tools/install`, `dependencies/lib`, and
+`dependencies/lib64` when present. These matching shared libraries are required
+by OpenROAD; the container checks `openroad -version` before starting the flow.
 Keep the shared source and installed tools fixed while comparing one array's jobs.
 
 A warning five minutes before the time limit triggers an attempt to save partial

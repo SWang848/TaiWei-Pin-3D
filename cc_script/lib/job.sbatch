@@ -96,7 +96,13 @@ printf '[cc] %s: working in %s; outputs will return to %s\n' "$solution_id" "$wo
 
 # Copy runtime inputs and the selected prepared partition to local disk.
 tar -C "$shared_repo" -cf - "${runtime_files[@]}" | tar -C "$local_repo" -xf -
-tar -C "$ORFS_BASE" -cf - tools/install | tar -C "$work/ORFS-Research" -xf -
+# OpenROAD's RUNPATH points into /ORFS-Research/dependencies. Binding the
+# staged ORFS tree hides the image's copy, so stage the matching libraries too.
+orfs_runtime=(tools/install dependencies/lib)
+if [[ -d "$ORFS_BASE/dependencies/lib64" ]]; then
+  orfs_runtime+=(dependencies/lib64)
+fi
+tar -C "$ORFS_BASE" -cf - "${orfs_runtime[@]}" | tar -C "$work/ORFS-Research" -xf -
 tar -C "$local_run" -xf "$shared_run/inputs.tar" preparation/results "solutions/$solution_id"
 
 module load apptainer

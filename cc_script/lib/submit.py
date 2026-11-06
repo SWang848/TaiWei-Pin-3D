@@ -58,7 +58,8 @@ def main():
     # Keep one private input snapshot so queued jobs use the same prepared files.
     run_dir = case_dir / "cc_runs/RUN_ID"
     if not args.dry_run:
-        for path in (Path(env["CC_IMAGE"]), Path(env["ORFS_BASE"]) / "tools/install"):
+        for path in (Path(env["CC_IMAGE"]), Path(env["ORFS_BASE"]) / "tools/install",
+                     Path(env["ORFS_BASE"]) / "dependencies/lib"):
             if not path.exists():
                 raise FileNotFoundError(f"Missing runtime input: {path}")
         run_dir.parent.mkdir(parents=True, exist_ok=True)
