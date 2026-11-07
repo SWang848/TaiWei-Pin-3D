@@ -251,6 +251,9 @@ and `reports/` directories. The generator retains it by default. In particular,
 `preparation/results/1_synth.sdc`, `2_2_floorplan_io.def`, and
 `2_2_floorplan_io.v`, together with `solutions/`, are the ready inputs for
 the [CC evaluation scripts](cc_script/README.md).
+The CC runner copies these files directly into each job's local workspace and
+saves outputs under `$SCRATCH/taiwei/<run-id>/logs/` and `results/<solution-id>/`.
+Its input and output roots are set in [cc_script/config.sh](cc_script/config.sh).
 
 The cache is reused when its config and exported files match the saved
 fingerprints; use `--rebuild-seed` after RTL or library changes.

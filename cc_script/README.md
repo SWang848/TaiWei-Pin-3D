@@ -40,7 +40,11 @@ solution IDs are preserved, including gaps in their numbering.
 ## 2. Set paths once
 
 Edit [config.sh](config.sh) with your fixed CC paths: `CC_BASE`, `TAIWEI_BASE`,
-`ORFS_BASE` and `CC_IMAGE`. Leave `CC_ACCOUNT` empty to use Slurm's default
+`ORFS_BASE` and `CC_IMAGE`. `CC_INPUT_ROOT` defaults to
+`$TAIWEI_BASE/partition_experiments`; cases are read from
+`$CC_INPUT_ROOT/<platform>/<case>/`. `CC_OUTPUT_ROOT` defaults to `$SCRATCH/taiwei`
+and must stay below `$SCRATCH`; saved outputs are not written into the repository.
+Leave `CC_ACCOUNT` empty to use Slurm's default
 allocation, or set it if the cluster requires an explicit project.
 CPU, memory, time, platform and tier settings are in the same file.
 
@@ -57,10 +61,22 @@ bash cc_script/run.sh bp_fe 4
 bash cc_script/run.sh bp_be 4 --dry-run
 ```
 
+The entry script resolves its own location, so it also works when launched by
+absolute path from another directory. Invalid settings and missing prepared inputs
+are rejected before a run directory is created or jobs are submitted.
+
 One Slurm array is submitted. Each task uses a prepared partition and the existing
 2D seed, starting the 3D OpenROAD flow without the 2D synthesis/partitioning
-bootstrap. The existing SIF is reused. Defaults are 8 CPUs, 32 GB memory and
-12 hours per candidate.
+bootstrap. The existing SIF is reused. Defaults are 8 CPUs, 16 GiB memory and
+2 hours per candidate, based on the `bp_be` pilot:
+
+| Solution | Elapsed | Peak memory | CPU efficiency with 8 cores |
+| --- | --- | --- | --- |
+| s0000 | 1:11:20 | 10.17 GiB | 74.73% |
+| s0001 | 1:08:33 | 9.54 GiB | 73.25% |
+
+Remeasure for other designs. Six cores is a useful next scaling experiment;
+the pilot measured eight cores, so its runtime does not establish six-core performance.
 
 For a pilot with only the first two solution IDs, preview and then submit:
 
@@ -88,8 +104,8 @@ sacct -j ARRAY_JOB_ID --format=JobID,State,ExitCode,Elapsed,AllocCPUS,TotalCPU,R
 ```
 
 Keep step rows in the accounting output: peak memory often appears on `.batch`.
-Also check each solution's `status.txt` for `state=COMPLETED` and its final
-`openroad_eval.json`. Two successful candidates check the pilot paths, not every
+Check Slurm's final state and each solution's `openroad_eval.json`.
+Two successful candidates check the pilot paths, not every
 design or partition. Use completed-job elapsed time and peak memory with some
 headroom for the next request; timeouts and out-of-memory failures give lower
 bounds. CPU efficiency helps identify over-allocation; compare another CPU count
@@ -98,16 +114,45 @@ an initial estimate; other partitions may need more resources.
 
 ## Saved results
 
-Submission prints the run directory and array ID. The run directory contains:
+Submission prints the scratch run directory and array ID. Each run contains
+only `logs/` and `results/`:
 
-- `inputs.tar`: a frozen copy of the prepared seed and partition inputs.
-- `solutions.txt`: the mapping from array indices to your original solution IDs.
-- `submission.json`: solution metadata and array job ID.
-- `slurm/`: scheduler logs.
-- `results/s0000/r0/`: `status.txt`, `openroad_eval.json`, `run.log` and `output.tar`.
+```text
+$SCRATCH/taiwei/
+  RUN_ID/
+    logs/
+      submission.json
+      solutions.txt
+      partition-ARRAY_JOB_ID_0.out
+      partition-ARRAY_JOB_ID_1.out
+    results/
+      s0000/
+        openroad_eval.json
+        output.tar
+      s0001/
+        openroad_eval.json
+        output.tar
+```
+
+Jobs copy the shared prepared seed and their selected partition directly from
+the existing input folders when they start. There is no intermediate input archive.
+Keep prepared inputs unchanged while jobs are queued or running.
+The solution list under `logs/` maps array indices to the original solution IDs.
+Submission metadata records the input directory, those IDs, optional source keys
+and costs, the array ID, and requested resources.
 
 `solution.json` is optional; when present its source key and cost are recorded.
-The `r0` directory is the first attempt; Slurm requeues use `r1`, `r2`, etc.
+Each partition has one flat result directory. Automatic requeue is disabled;
+retry failed candidates through a new submission so saved results stay intact.
+The scheduler log records the workspace and final state, exit code, and any
+interruption signal; there is no separate status file.
+
+The full flow log is stored once as `run.log` inside `output.tar`, alongside the
+flow results, reports, and stage logs. To inspect it on an allocated compute node:
+
+```bash
+tar -xOf results/s0000/output.tar run.log
+```
 
 ```bash
 squeue --array --jobs=ARRAY_JOB_ID
@@ -116,12 +161,26 @@ squeue --array --jobs=ARRAY_JOB_ID
 Each job stages the runtime files, installed tools, seed and its selected partition
 into `$SLURM_TMPDIR`. Synthesis is already complete; 3D placement, routing and
 reports are written on local temporary storage. At exit, the job archives its
-outputs and copies them and the metrics back to the shared run directory.
+outputs and saves them and the metrics to the run directory under `$SCRATCH/taiwei`.
 The staged ORFS tree includes `tools/install`, `dependencies/lib`, and
 `dependencies/lib64` when present. These matching shared libraries are required
 by OpenROAD; the container checks `openroad -version` before starting the flow.
 Keep the shared source and installed tools fixed while comparing one array's jobs.
+Scratch is temporary storage; copy important completed results to project storage
+for long-term retention.
 
 A warning five minutes before the time limit triggers an attempt to save partial
 outputs. Node failure, SIGKILL or unavailable shared storage can prevent recovery.
 The implementation in `lib/` handles staging, execution and copy-back.
+
+## Runner code
+
+[run.sh](run.sh) loads [config.sh](config.sh) and starts
+[lib/submit.py](lib/submit.py). Submission validates settings, reads the prepared
+inputs, selects partitions, creates the scratch run, and submits one Slurm array.
+Its metadata is written atomically under `logs/`.
+
+[lib/job.sbatch](lib/job.sbatch) stages the runtime and selected inputs, runs the
+container, and saves the result archive and final metrics. It also saves partial
+artifacts on failure or interruption. [lib/container.sh](lib/container.sh) sources
+the project environment, prepares the design from the copied seed, and runs OpenROAD.

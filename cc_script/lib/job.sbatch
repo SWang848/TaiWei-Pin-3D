@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Evaluate one already-prepared partition. run.sh submits this as an array.
+# One prepared partition per array task. Final outputs stay under CC_OUTPUT_ROOT.
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=taiwei
@@ -7,119 +7,139 @@
 set -euo pipefail
 fail() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 [[ $# == 5 ]] || fail 'Submit using bash cc_script/run.sh CASE PARALLEL_JOBS.'
-platform="$1"; design="$2"; run_relative="$3"; tier="$4"; iterations="$5"
+platform="$1"; design="$2"; run_directory="$3"; tier="$4"; iterations="$5"
 [[ "$platform" =~ ^[A-Za-z0-9_-]+$ && "$design" =~ ^[A-Za-z0-9_-]+$ ]] || fail 'Invalid platform or case.'
 : "${TAIWEI_BASE:?Submit using cc_script/run.sh.}"
 : "${ORFS_BASE:?Set ORFS_BASE in cc_script/config.sh.}"
 : "${CC_IMAGE:?Set CC_IMAGE in cc_script/config.sh.}"
+: "${CC_OUTPUT_ROOT:?Set CC_OUTPUT_ROOT in cc_script/config.sh.}"
 : "${SLURM_JOB_ID:?Run this script through Slurm.}"
 : "${SLURM_CPUS_PER_TASK:?Missing Slurm CPU allocation.}"
 : "${SLURM_TMPDIR:?Node-local storage is required; no shared-filesystem fallback is used.}"
 : "${SLURM_ARRAY_TASK_ID:?Missing array index.}"
 : "${SLURM_ARRAY_JOB_ID:?Missing array job ID.}"
 
-shared_repo="$(realpath -e "$TAIWEI_BASE")"
-shared_run="$(realpath -e "$shared_repo/$run_relative")"
-[[ "$shared_run" == "$shared_repo/partition_experiments/$platform/$design/cc_runs/"* ]] || fail 'Invalid run directory.'
-image="$CC_IMAGE"
-[[ -r "$image" ]] || fail "Cannot read prebuilt SIF: $image"
-restart="${SLURM_RESTART_COUNT:-0}"
-solution_id="$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" "$shared_run/solutions.txt")"
+code_root="$(realpath -e "$TAIWEI_BASE")"
+input_root="$(realpath -e "${CC_INPUT_ROOT:-$code_root/partition_experiments}")"
+input_dir="$input_root/$platform/$design"
+output_root="$(realpath -e "$CC_OUTPUT_ROOT")"
+run_dir="$(realpath -e -- "$run_directory")"
+[[ "$(dirname "$run_dir")" == "$output_root" ]] || fail 'Run directory is outside CC_OUTPUT_ROOT.'
+[[ -r "$CC_IMAGE" ]] || fail "Cannot read prebuilt SIF: $CC_IMAGE"
+solution_id="$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" "$run_dir/logs/solutions.txt")"
 [[ "$solution_id" =~ ^s[0-9]+$ ]] || fail 'Array index has no prepared solution.'
-variant="cc_${SLURM_ARRAY_JOB_ID}_${solution_id}_r${restart}"
-save_dir="$shared_run/results/$solution_id/r$restart"
-mkdir -p "$(dirname "$save_dir")"
-mkdir "$save_dir"  # A duplicate job must not overwrite saved results.
-work="$(mktemp -d "$SLURM_TMPDIR/taiwei.XXXXXX")"
-local_repo="$work/TaiWei-Pin-3D"
-local_run="$local_repo/$run_relative"
-mkdir -p "$local_run" "$work/ORFS-Research" "$work/tmp"
-touch "$work/run.log"
+variant="cc_${SLURM_ARRAY_JOB_ID}_${solution_id}"
+result_dir="$run_dir/results/$solution_id"
+mkdir -p "$(dirname "$result_dir")"
+mkdir "$result_dir"  # Claim once: duplicate workers cannot overwrite saved results.
+
+workspace="$(mktemp -d "$SLURM_TMPDIR/taiwei.XXXXXX")"
+local_repo="$workspace/TaiWei-Pin-3D"
+input_relative=.cc_inputs
+local_inputs="$local_repo/$input_relative"
+mkdir -p "$local_inputs/preparation/results" "$local_inputs/solutions/$solution_id" \
+         "$workspace/ORFS-Research" "$workspace/tmp"
+touch "$workspace/run.log"
 child_pid=""
 interrupted=""
-runtime_files=(Makefile env.sh designs platforms scripts_openroad util test cc_script/lib)
 
-write_status() {
-  printf 'state=%s\nexit_code=%s\nsolution=%s\nvariant=%s\nworkspace=%s\ninterrupted=%s\n' \
-    "$1" "$2" "$solution_id" "$variant" "$work" "$interrupted" > "$save_dir/status.txt.tmp"
-  mv -- "$save_dir/status.txt.tmp" "$save_dir/status.txt"
+stage_runtime() {
+  local -a code_files=(Makefile env.sh designs platforms scripts_openroad util test cc_script/lib)
+  local -a tool_files=(tools/install dependencies/lib)
+  [[ ! -d "$ORFS_BASE/dependencies/lib64" ]] || tool_files+=(dependencies/lib64)
+  tar -C "$code_root" -cf - "${code_files[@]}" | tar -C "$local_repo" -xf -
+  # Keep the libraries required by OpenROAD's /ORFS-Research/dependencies RUNPATH.
+  tar -C "$ORFS_BASE" -cf - "${tool_files[@]}" | tar -C "$workspace/ORFS-Research" -xf -
+}
+
+stage_inputs() {
+  local seed_file source
+  for seed_file in 1_synth.sdc 2_2_floorplan_io.def 2_2_floorplan_io.v; do
+    source="$input_dir/preparation/results/$seed_file"
+    [[ -s "$source" ]] || fail "Missing prepared seed: $source"
+    cp -- "$source" "$local_inputs/preparation/results/$seed_file"
+  done
+  source="$input_dir/solutions/$solution_id/macro_partition.txt"
+  [[ -s "$source" ]] || fail "Missing partition: $source"
+  cp -- "$source" "$local_inputs/solutions/$solution_id/macro_partition.txt"
+}
+
+run_container() {
+  module load apptainer
+  setsid apptainer exec --cleanenv \
+    --bind "$workspace/ORFS-Research:/ORFS-Research:ro" \
+    --bind "$local_repo:/TaiWei-Pin-3D" \
+    --bind "$workspace/tmp:/tmp" \
+    --pwd /TaiWei-Pin-3D \
+    --env "NUM_CORES=$SLURM_CPUS_PER_TASK" \
+    --env "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" \
+    "$CC_IMAGE" bash --noprofile --norc /TaiWei-Pin-3D/cc_script/lib/container.sh \
+    "$platform" "$design" "$input_relative" "$tier" "$iterations" "$solution_id" "$variant" \
+    > "$workspace/run.log" 2>&1 &
+  child_pid=$!
+  local flow_exit=0
+  wait "$child_pid" || flow_exit=$?
+  child_pid=""
+  return "$flow_exit"
 }
 
 save_outputs() {
-  local code=$? state=FAILED
+  local flow_exit=$? state=FAILED tree
   trap - EXIT
   trap '' USR1 TERM INT
   set +e
-  local -a outputs=()
-  local tree
+  local -a outputs=() archive_args=(-C "$workspace" run.log)
   for tree in results logs objects reports; do
     [[ ! -e "$local_repo/$tree/$platform/$design/$variant" ]] || outputs+=("$tree/$platform/$design/$variant")
   done
-  tar -C "$local_repo" -cf "$save_dir/output.tar.partial" "${outputs[@]}" -C "$work" run.log
-  if [[ $? == 0 ]] && mv -- "$save_dir/output.tar.partial" "$save_dir/output.tar"; then
+  if (( ${#outputs[@]} > 0 )); then
+    archive_args+=(-C "$local_repo" "${outputs[@]}")
+  fi
+  if tar -cf "$result_dir/output.tar.partial" "${archive_args[@]}" && \
+     mv -- "$result_dir/output.tar.partial" "$result_dir/output.tar"; then
     :
-  elif (( code == 0 )); then
-    code=1
+  elif (( flow_exit == 0 )); then
+    flow_exit=1
   fi
-  cp -- "$work/run.log" "$save_dir/run.log" || { (( code != 0 )) || code=1; }
-
   if [[ -s "$local_repo/reports/$platform/$design/$variant/openroad_eval.json" ]]; then
-    cp -- "$local_repo/reports/$platform/$design/$variant/openroad_eval.json" "$save_dir/openroad_eval.json" || code=1
+    cp -- "$local_repo/reports/$platform/$design/$variant/openroad_eval.json" \
+          "$result_dir/openroad_eval.json" || flow_exit=1
   fi
-  if (( code == 0 )); then state=COMPLETED; fi
+  if (( flow_exit == 0 )); then state=COMPLETED; fi
   if [[ -n "$interrupted" ]]; then state=INTERRUPTED; fi
-  write_status "$state" "$code" || { (( code != 0 )) || code=1; }
-  printf '[cc] %s: %s (exit %s); saved to %s\n' "$solution_id" "$state" "$code" "$save_dir"
-  exit "$code"
+  printf '[cc] %s: %s (exit %s); signal=%s; saved to %s\n' \
+    "$solution_id" "$state" "$flow_exit" "${interrupted:-none}" "$result_dir"
+  exit "$flow_exit"
 }
 
 stop_for_signal() {
   interrupted="$1"
   trap '' USR1 TERM INT
   if [[ -n "$child_pid" ]]; then
-    kill -TERM -- "-$child_pid" 2>/dev/null || true
-    for attempt in {1..5}; do
-      kill -0 -- "-$child_pid" 2>/dev/null || break
-      sleep 1
-    done
-    kill -KILL -- "-$child_pid" 2>/dev/null || true
-    wait "$child_pid" 2>/dev/null || true
+    local flow_pid="$child_pid" watchdog_pid
+    kill -TERM -- "-$flow_pid" 2>/dev/null || true
+    # A single deadline timer bounds shutdown without a polling/sleep loop.
+    (
+      trap - EXIT USR1 TERM INT
+      sleep 5
+      kill -KILL -- "-$flow_pid" 2>/dev/null || true
+    ) >/dev/null 2>&1 &
+    watchdog_pid=$!
+    wait "$flow_pid" 2>/dev/null || true
+    kill -KILL -- "-$flow_pid" 2>/dev/null || true
+    kill "$watchdog_pid" 2>/dev/null || true
+    wait "$watchdog_pid" 2>/dev/null || true
+    child_pid=""
   fi
   exit 143
 }
+
 trap save_outputs EXIT
 trap 'stop_for_signal TIME_LIMIT_WARNING' USR1
 trap 'stop_for_signal TERMINATED' TERM
 trap 'stop_for_signal INTERRUPTED' INT
-write_status RUNNING ''
-printf '[cc] %s: working in %s; outputs will return to %s\n' "$solution_id" "$work" "$save_dir"
-
-# Copy runtime inputs and the selected prepared partition to local disk.
-tar -C "$shared_repo" -cf - "${runtime_files[@]}" | tar -C "$local_repo" -xf -
-# OpenROAD's RUNPATH points into /ORFS-Research/dependencies. Binding the
-# staged ORFS tree hides the image's copy, so stage the matching libraries too.
-orfs_runtime=(tools/install dependencies/lib)
-if [[ -d "$ORFS_BASE/dependencies/lib64" ]]; then
-  orfs_runtime+=(dependencies/lib64)
-fi
-tar -C "$ORFS_BASE" -cf - "${orfs_runtime[@]}" | tar -C "$work/ORFS-Research" -xf -
-tar -C "$local_run" -xf "$shared_run/inputs.tar" preparation/results "solutions/$solution_id"
-
-module load apptainer
-container_args=("$platform" "$design" "$run_relative" "$tier" "$iterations" "$solution_id" "$variant")
-setsid apptainer exec --cleanenv \
-  --bind "$work/ORFS-Research:/ORFS-Research:ro" \
-  --bind "$local_repo:/TaiWei-Pin-3D" \
-  --bind "$work/tmp:/tmp" \
-  --pwd /TaiWei-Pin-3D \
-  --env "NUM_CORES=$SLURM_CPUS_PER_TASK" \
-  --env "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" \
-  "$image" bash --noprofile --norc /TaiWei-Pin-3D/cc_script/lib/container.sh \
-  "${container_args[@]}" > "$work/run.log" 2>&1 &
-child_pid=$!
-set +e
-wait "$child_pid"
-code=$?
-set -e
-child_pid=""
-exit "$code"
+printf '[cc] %s: input=%s; working in %s; outputs will return to %s\n' \
+  "$solution_id" "$input_dir" "$workspace" "$result_dir"
+stage_runtime
+stage_inputs
+run_container
