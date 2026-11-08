@@ -47,3 +47,6 @@ work.codex/
 !/partition_experiments/*/
 !/partition_experiments/*/*/
 !/partition_experiments/*/*/candidates.json
+
+# ignore CC results
+/cc_results/

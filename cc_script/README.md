@@ -173,6 +173,140 @@ A warning five minutes before the time limit triggers an attempt to save partial
 outputs. Node failure, SIGKILL or unavailable shared storage can prevent recovery.
 The implementation in `lib/` handles staging, execution and copy-back.
 
+## Summarize final PPA
+
+After extracting the result archives, run the standard-library-only
+[summarize_partitions.py](../summarize_partitions.py) from the repository root:
+
+```bash
+python3 summarize_partitions.py cc_results/20261107T012451Z_dw7hy6ps
+```
+
+The default output is `partition_ppa.csv` inside the input directory. To choose
+another output path:
+
+```bash
+python3 summarize_partitions.py cc_results/20261107T012451Z_dw7hy6ps -o partition_ppa.csv
+```
+
+The input can also be the run's `results/` directory or one `sNNNN/` partition
+directory. Each CSV row represents one partition, sorted by its original numeric
+index (`s0048` becomes `idx=48`; gaps are preserved). The columns are:
+
+| Column | Meaning / unit |
+| --- | --- |
+| `idx` | Numeric partition index from the `sNNNN` folder name |
+| `after_routing_wirelength` | Final detailed-route wirelength, micrometers |
+| `tns` | Final setup total negative slack, nanoseconds |
+| `wns` | Final setup worst negative slack, nanoseconds |
+| `power` | Final estimated total power, watts |
+| `cost` | L2 norm of the four min-max normalized PPA metrics; lower is better |
+
+Normalization uses the minimum and maximum of each metric across complete rows
+in this invocation. Wirelength and power use `(value - min) / (max - min)`;
+TNS and WNS use `(max - value) / (max - min)` because higher slack is better.
+The cost is `sqrt(wire_norm^2 + tns_norm^2 + wns_norm^2 + power_norm^2)`, with
+equal weight for all four metrics. Its range is 0 to 2, with 0 representing the
+best observed value in every metric. A constant metric contributes zero; a run
+with only one complete partition therefore has cost zero. Incomplete rows have
+blank cost and are excluded from normalization bounds. Scores are relative to
+the partitions included in this CSV, so adding partitions can change the costs.
+
+Timing and power come from `openroad_eval.json`, with missing values filled from
+`final_summary.txt` or `6_finish.rpt`. Wirelength comes from `final_summary.txt`,
+or the sum of per-net `drt:` lengths in `6_wire_length.rpt` when needed. Placement
+HPWL and intermediate routing iterations are not used. The program reads the
+files inside each partition folder, ignoring old container paths in JSON metadata.
+
+Failed or incomplete partitions retain their row with blank missing measurements
+and a warning on stderr; a genuine measured zero remains zero. Multiple report
+variants inside one partition are rejected to avoid mixing different runs.
+
+## Plot partition quality
+
+Use [plot_partitions.py](../plot_partitions.py) to plot all solutions with cut
+size on the x axis, area imbalance on the y axis, and a final PPA metric as the
+point color. Install its plotting dependency in your Python environment:
+
+```bash
+python3 -m pip install matplotlib
+python3 plot_partitions.py \
+  partition_experiments/nangate45_3D/bp_be/solutions \
+  cc_results/20261107T012451Z_dw7hy6ps/partition_ppa.csv
+```
+
+The default output is `partition_wns.png` beside the CSV, at 300 dpi. Use
+`-o figure.pdf` or `-o figure.svg` for vector output, or `-o figure.png` to choose
+another PNG path.
+
+For TNS colors and rankings, add `--metric tns`:
+
+```bash
+python3 plot_partitions.py \
+  partition_experiments/nangate45_3D/bp_be/solutions \
+  cc_results/20261107T012451Z_dw7hy6ps/partition_ppa.csv --metric tns
+```
+
+This saves `partition_tns.png` beside the CSV. WNS remains the default metric.
+
+Routed wirelength and power use `--metric rwl` and `--metric power`:
+
+```bash
+python3 plot_partitions.py \
+  partition_experiments/nangate45_3D/bp_be/solutions \
+  cc_results/20261107T012451Z_dw7hy6ps/partition_ppa.csv --metric rwl
+python3 plot_partitions.py \
+  partition_experiments/nangate45_3D/bp_be/solutions \
+  cc_results/20261107T012451Z_dw7hy6ps/partition_ppa.csv --metric power
+```
+
+These save `partition_rwl.png` and `partition_power.png` beside the CSV.
+
+To combine all four metrics in one figure, use `--metric merge`:
+
+```bash
+python3 plot_partitions.py \
+  partition_experiments/nangate45_3D/bp_be/solutions \
+  cc_results/20261107T012451Z_dw7hy6ps/partition_ppa.csv --metric merge
+```
+
+The output is `partition_merge.png`. The 2×2 layout contains WNS at upper left,
+TNS at upper right, rWL at bottom left, and Power at bottom right. Panels touch
+without horizontal or vertical gaps, and legends use larger text and markers. Axis titles
+appear once on the outside left and bottom margins, with tick labels only on
+the outside axes. The merged figure omits colorbars and keeps each point's
+metric color, the top-five labels, and the Balanced Min-Cut star. Color scales
+match those in the individual metric plots. PDF and SVG output also support
+merge mode through `-o`.
+
+| Metric option | CSV column | Colorbar unit |
+| --- | --- | --- |
+| `wns` | `wns` | ns |
+| `tns` | `tns` | ns |
+| `rwl` | `after_routing_wirelength` | µm |
+| `power` | `power` | W |
+
+The program reads `[cut size, area imbalance]` from each `sNNNN/solution.json`
+file's `cost` array and joins its folder index to the CSV's `idx`. This geometry
+array is separate from the CSV's scalar PPA `cost`. The five selected metric
+values closest to zero are labeled **1–5**, with rank 1 closest, using ascending
+absolute values. For routed wirelength and power, lower values rank first.
+For example, `-0.48` ranks ahead of `-1.01`. Ties use the original partition
+index; labels are ranks rather than partition IDs. Blue consistently represents
+better values and red worse values: WNS/TNS nearer zero appear bluer, and lower
+routed wirelength/power appear bluer. Solutions without the selected metric are
+omitted from the plot and ranking. The CSV's `cost` column is optional for this
+plot. The console lists the labeled ranks, partition indices, and selected metric. Use
+`--top-n N` to change the label count.
+
+The solution with the smallest area imbalance is drawn as a star labeled
+**Balanced Min-Cut**. If several solutions share that imbalance, the smallest
+cut size wins, followed by the original partition index. Selection uses all
+solution geometries so the reference solution is consistent across metrics.
+The star replaces its dot and retains the metric color. If that solution lacks
+the selected metric, it remains hidden and the console explains why. Its
+top-five rank label is retained when applicable.
+
 ## Runner code
 
 [run.sh](run.sh) loads [config.sh](config.sh) and starts
