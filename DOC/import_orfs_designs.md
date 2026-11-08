@@ -271,6 +271,64 @@ local input and required tier-library checks, and shell syntax checks for
 the launch wrappers. The copied SDC files match the upstream files. Full
 synthesis, partitioning, and 3D place-and-route have not been run.
 
+## Black Parrot full-core case
+
+The [black_parrot case](../designs/nangate45_3D/black_parrot/) imports
+ORFS's `designs/nangate45/black_parrot` and
+`designs/src/black_parrot/pickled.v`. Its RTL top and Taiwei nickname are both
+`black_parrot`; the upstream nickname `bp` is replaced by the local directory
+name so the standard launch wrappers and output paths agree.
+
+The local [black_parrot.v](../designs/nangate45_3D/black_parrot/black_parrot.v)
+combines the unchanged upstream RTL and RAM wrappers. No separate wrapper
+file or external RTL path is needed. The original
+[constraint.sdc](../designs/nangate45_3D/black_parrot/constraint.sdc) is copied
+unchanged and specifies a 6 ns clock on `clk_i`. The upstream
+[license](../designs/nangate45_3D/black_parrot/LICENSE) and
+[2D baseline rules](../designs/nangate45_3D/black_parrot/rules-base.json) are
+also retained; the baseline rules do not establish 3D acceptance thresholds.
+
+The [2D configuration](../designs/nangate45_3D/black_parrot/config2d.mk)
+and [3D configuration](../designs/nangate45_3D/black_parrot/config.mk)
+follow the existing Nangate45 macro-case format, with these explicit choices:
+
+- Both stages default to 50% core utilization, matching `bp_quad`, with
+  aspect ratio 1 and core margin 5 um. These are initial implementation
+  settings rather than values tuned for this design.
+- Hierarchical synthesis and `ABC_AREA=1` are retained from ORFS.
+- The 2D placement-density addon remains the upstream value 0.05. The 3D
+  addon is 0.08 and the tier-specific macro halos are 5 um on each axis,
+  following `bp_quad`'s 3D configuration.
+- The upstream hold-repair margin, `HOLD_SLACK_MARGIN=0.03`, is configured
+  for the later OpenROAD repair stages in the 3D configuration.
+- Sorted library wildcards load Taiwei's local 2D and tier-specific RAM
+  models, following the other macro cases.
+- Taiwei's floorplan, IO, and per-tier automatic macro placement replace
+  the upstream fixed die/core dimensions, IO edge restrictions, and
+  absolute macro coordinates. The upstream scripts are not copied into
+  unused reference files.
+
+The five RAM types are `fakeram45_512x64`, `fakeram45_256x95`,
+`fakeram45_64x7`, `fakeram45_64x15`, and `fakeram45_64x96`. Their 2D and
+both-tier normal/COVER views are already available in the local platforms.
+
+Run from the Taiwei repository root:
+
+```bash
+source env.sh
+bash test/nangate45_3D/black_parrot/ord/run.sh
+```
+
+The matching `cds/run.sh` and both evaluation wrappers use the same common
+helpers as the existing cases. The experiment runner discovers the new case
+from its `run.sh` wrappers.
+
+Preliminary validation passed local input/library-view checks, Yosys parsing
+and hierarchy resolution including the embedded RAM wrappers, shell syntax
+checks, and make dry runs for the 2D bootstrap and 3D preparation targets.
+The copied SDC matches the upstream file. Full synthesis, partitioning, and
+3D place-and-route have not been run, and no timing/DRC/PPA outcome is claimed.
+
 ## Adapting another ORFS Nangate45 design
 
 1. Inspect its upstream `config.mk` for the actual top module, nickname,
