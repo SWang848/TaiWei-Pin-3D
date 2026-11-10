@@ -51,5 +51,8 @@ work.codex/
 # SA generates its own candidates and prepared seed from a 2D design config.
 /partition_experiments_sa/
 
+# Place-MoL generates partitions and a private/reusable 2D preparation seed.
+/partition_experiments_placemol/
+
 # ignore CC results
 /cc_results/

@@ -148,7 +148,10 @@ The scheduler log records the workspace and final state, exit code, and any
 interruption signal; there is no separate status file.
 
 The full flow log is stored once as `run.log` inside `output.tar`, alongside the
-flow results, reports, and stage logs. To inspect it on an allocated compute node:
+reports and stage logs. Generated design files under `results/` and intermediate
+files under `objects/` are excluded from the archive to reduce storage and transfer
+size. Final metrics are also saved separately as `openroad_eval.json`.
+To inspect the flow log on an allocated compute node:
 
 ```bash
 tar -xOf results/s0000/output.tar run.log

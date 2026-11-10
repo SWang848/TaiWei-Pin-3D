@@ -1,0 +1,5 @@
+# Min-cut / max-cut need only NumPy. GNN-cut needs all four packages.
+numpy>=1.23
+torch>=2.0
+torch-geometric>=2.3
+scikit-learn>=1.2

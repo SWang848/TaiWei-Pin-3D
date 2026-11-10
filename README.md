@@ -280,6 +280,120 @@ and duplicate assignments before writing. Re-running refreshes generated
 files without removing unrelated files. If solution identities or the number
 of folders would conflict with an earlier export, use a fresh output directory.
 
+To run the **Place-MoL min-cut, max-cut and GNN-cut** algorithms on a TaiWei
+2D seed, use [generate_placemol_macro_partitions.py](generate_placemol_macro_partitions.py):
+
+```bash
+source env.sh
+python3 -m pip install -r requirements-placemol.txt matplotlib
+python3 generate_placemol_macro_partitions.py designs/nangate45_3D/ariane133/config2d.mk \
+  --seed-results partition_experiments_sa/nangate45_3D/ariane133/preparation/results
+```
+
+The default `--method all` exports one solution for each of `min-cut`, `max-cut`
+and `gnn-cut`, in that order. Select one with `--method min-cut`,
+`--method max-cut` or `--method gnn-cut`. `--num-runs N` repeats each selected
+method with seeds `--seed`, `--seed + 1`, and so on. The reference min/max
+initializer is deterministic, so changing its seed can produce duplicate
+partitions; the manifest identifies them. Without `--seed-results`, TaiWei
+builds or reuses the same private synthesis/floorplan/IO seed as the other
+generators. An existing preparation directory can be reused directly:
+
+```bash
+python3 generate_placemol_macro_partitions.py designs/nangate45_3D/ariane133/config2d.mk \
+  --preparation-dir partition_experiments_sa/nangate45_3D/ariane133/preparation \
+  --method min-cut --no-plot
+```
+
+Min/max cut require only NumPy; GNN-cut also requires PyTorch, PyTorch Geometric
+and scikit-learn. Matplotlib is optional with `--no-plot`. The GNN defaults match
+the reference flow: 20 epochs, learning rate 0.001, hidden dimension 128,
+embedding dimension 64, 3 GIN layers, dropout 0.1 and temperature 0.07.
+`--gnn-*` options expose those settings; `--device cpu` is the default, with
+`--device cuda:0` available for CUDA installations. `--threads` controls the
+PyTorch/KMeans CPU thread limit (default 1).
+
+When running inside the ORFS Docker container with this repository mounted at
+`/TaiWei-Pin-3D`, create the environment **inside that container**. Host-created
+activation scripts can contain a host-only path, and their interpreter symlinks
+can point to executables absent from the container. For a fresh container:
+
+```bash
+cd /TaiWei-Pin-3D
+/usr/bin/python3 -m venv work.codex/placemol_docker_venv
+source work.codex/placemol_docker_venv/bin/activate
+python -m pip install --index-url https://download.pytorch.org/whl/cpu 'torch==2.5.1+cpu'
+python -m pip install -r requirements-placemol.txt matplotlib
+```
+
+For later shells in that container, activate the existing environment and
+confirm the interpreter before running partitions:
+
+```bash
+cd /TaiWei-Pin-3D
+source work.codex/placemol_docker_venv/bin/activate
+python -c 'import sys, torch; print(sys.executable); print(torch.__version__)'
+python generate_placemol_macro_partitions.py designs/nangate45_3D/ariane133/config2d.mk \
+  --seed-results partition_experiments_sa/nangate45_3D/ariane133/preparation/results
+```
+
+The interpreter should be
+`/TaiWei-Pin-3D/work.codex/placemol_docker_venv/bin/python`. This setup uses CPU
+PyTorch. The environment is kept in the mounted repository and remains available
+after exiting the container; reuse it with the same container Python version.
+
+Outputs default to `partition_experiments_placemol/<platform>/<case>/`:
+
+- `solutions/sNNNN/macro_partition.txt` and `solution.json`, using physical
+  labels **0 = upper, 1 = bottom**. Metadata includes method, seed and metrics.
+- `manifest.tsv`, `macro_name_map.tsv` and exporter-compatible `candidates.json`.
+- `metrics.tsv`, recording cut weight, bottom/upper areas, absolute area
+  difference, imbalance ratio and whether the requested tolerance was met.
+- `preparation/`, including the matching seed. A shared cache still copies
+  the three CC handoff files into the output's `preparation/results/` directory.
+- `partition_solutions.png` and `partition_solutions.pdf`, unless `--no-plot`.
+
+Set `CC_INPUT_ROOT` in [cc_script/config.sh](cc_script/config.sh) to
+`"$TAIWEI_BASE/partition_experiments_placemol"` and keep
+`CC_STD_CELL_TIER=bottom` to evaluate these solutions. No 3D evaluation jobs
+are launched by the generator. Reruns replace generated solution files and
+remove obsolete generated files using the same policy as the SA generator.
+
+The local [Place-MoL port](partition_algorithms/placemol/README.md) preserves
+the supplied reference's algorithm behavior:
+
+- One vertex per BLOCK macro and one merged vertex for all other instances
+  and IO terminals. Each signal/clock net contributes one unit to each pair
+  of distinct merged graph vertices, regardless of repeated pins. There is
+  **no SA net-pin cutoff**. Power and ground nets are excluded.
+- `--k-hop` adds shortest-path connections of weight `1 / 2^hop` (default 1).
+  With `E > top_k_ratio * node_count^2`, the reference retains
+  `max(1, floor(E * top_k_ratio))` highest-weight edges. The default
+  `--top-k-ratio` is 0.3; 0 disables filtering.
+- Cell area is divided by `--scale-factor` (default 1.0). The scaled cells
+  stay on bottom. `area_diff = abs(bottom_area - upper_area)` and
+  `area_imbalance_ratio = area_diff / total_area`. Published costs are
+  `[cut_weight, area_diff]` to match the SA exporter/plot schema.
+- The reference cut evaluator and min/max swap gains use macro-to-macro
+  edges only. Cell-node edges remain in the graph and affect the GNN.
+- Min/max use the original descending-area greedy initializer and at most
+  ten best-pair swaps, including the reference's exact swap-gain expression.
+  GNN-cut retains the weighted GIN, contrastive loss, best-loss checkpoint,
+  macro-only KMeans (`random_state=42`, `n_init=10`), cluster selection nearest
+  the cell embedding, and embedding-distance area refinement. The GNN receives
+  the reference's single stored edge orientation; it is not symmetrized.
+- `--area-balance-error` defaults to 0.1. The reference may fail to satisfy
+  this tolerance (including for infeasible cell/macro area combinations).
+  Results are retained with `is_balanced=false` and a warning; the integration
+  does not replace them with a different balancing algorithm.
+
+The raw OpenDB geometry/pins snapshot is cached as
+`preparation/results/placemol_graph.tsv`, independently of the algorithm and
+graph settings. ODB, exporter and snapshot hashes govern cache reuse.
+[export_placemol_graph.tcl](scripts_openroad/export_placemol_graph.tcl) and the
+small PlaceDB adapter remove the DreamPlace dependency; the external
+Open3DBench checkout is not needed after installation.
+
 To generate partitions directly from a design using the grid-based simulated
 annealer, use [generate_sa_macro_partitions.py](generate_sa_macro_partitions.py):
 

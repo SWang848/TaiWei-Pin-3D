@@ -2,6 +2,7 @@
 # Extract ZIP and TAR archives beside them, overwriting existing files.
 # Skip the top-level results/ directory inside output.tar.
 # Delete each archive only after successful extraction.
+# bash unzip_all.sh ".cc_results/20261107T012451Z_dw7hy6ps"
 set -uo pipefail
 
 if [[ $# -ne 1 ]]; then

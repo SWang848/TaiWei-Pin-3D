@@ -352,6 +352,10 @@ set -euo pipefail
 [[ ! -v START_FROM && ! -v REUSE_2DPART_FROM_VARIANT ]]
 directory="reports/$1/$4/$2"
 mkdir -p "$directory"
+for tree in logs objects; do
+  mkdir -p "$tree/$1/$4/$2"
+  printf 'mock %s\\n' "$tree" > "$tree/$1/$4/$2/stage.txt"
+done
 printf '%s\\t%s\\t%s\\n' "$MACRO_PARTITION_FILE" "$STD_CELL_TIER" "$OUTER_ITERATIONS" > "$directory/launcher.tsv"
 printf 'mock flow in %s\\n' "$PWD"
 if [[ "${CC_TEST_FLOW_SLEEP:-0}" == 1 ]]; then touch "$CC_TEST_STARTED"; exec sleep 60; fi
@@ -403,11 +407,17 @@ if [[ "${CC_TEST_NO_METRICS:-0}" != 1 ]]; then printf '{}\\n' > "$directory/open
             variant = f"cc_2000_s{index:04d}"
             saved = run_dir / f"results/s{index:04d}"
             self.assertEqual(json.loads((saved / "openroad_eval.json").read_text()), {})
+            local_repo, = (self.base / f"node-local/task_{index}_r0").glob("taiwei.*/TaiWei-Pin-3D")
+            local_results = local_repo / f"results/nangate45_3D/bp_be/{variant}"
+            self.assertEqual((local_results / "1_synth.sdc").read_bytes(), b"changed after submission\n")
+            self.assertIn(f"ram_a {1-index}", (local_results / "partition.txt").read_text())
             with tarfile.open(saved / "output.tar") as archive:
-                seed = archive.extractfile(f"results/nangate45_3D/bp_be/{variant}/1_synth.sdc").read()
-                self.assertEqual(seed, b"changed after submission\n")
-                partition = archive.extractfile(f"results/nangate45_3D/bp_be/{variant}/partition.txt").read()
-                self.assertIn(f"ram_a {1-index}".encode(), partition)
+                self.assertEqual({name.split("/", 1)[0] for name in archive.getnames()},
+                                 {"run.log", "logs", "reports"})
+                self.assertEqual(archive.extractfile(f"logs/nangate45_3D/bp_be/{variant}/stage.txt").read(),
+                                 b"mock logs\n")
+                self.assertEqual(json.load(archive.extractfile(
+                    f"reports/nangate45_3D/bp_be/{variant}/openroad_eval.json")), {})
                 self.assertIn(b"mock flow", archive.extractfile("run.log").read())
             self.assertIn("COMPLETED (exit 0)", stdout)
             self.assertEqual(sorted(path.name for path in saved.iterdir()),

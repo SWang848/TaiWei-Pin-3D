@@ -15,6 +15,7 @@ proc block {method} {
   switch -- $method {
     getHierarchyDelimiter {return /}
     getInsts {return {a b c logic}}
+    getBTerms {return {p0 p1 p2 p3 p4 p5 p6 unconnected_port}}
     getNets {return {parallel bc boundary10 boundary9 clock power empty}}
   }
   error "Unexpected block method: $method"
