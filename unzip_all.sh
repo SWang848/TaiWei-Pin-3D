@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Extract ZIP and TAR archives beside them, overwriting existing files.
+# Skip the top-level results/ directory inside output.tar.
 # Delete each archive only after successful extraction.
 set -uo pipefail
 
@@ -14,6 +15,11 @@ extract_archive() {
     local archive=$1
     case "$archive" in
         *.[zZ][iI][pP]) unzip -o "$archive" -d "${archive%/*}" </dev/null ;;
+        */output.tar)
+            printf 'Skipping results/ inside: %s\n' "$archive"
+            tar -xf "$archive" -C "${archive%/*}" \
+                --anchored --exclude='results' --exclude='./results' </dev/null
+            ;;
         *) tar -xf "$archive" -C "${archive%/*}" </dev/null ;;
     esac
 }

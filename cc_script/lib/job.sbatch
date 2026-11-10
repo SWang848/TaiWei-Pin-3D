@@ -89,7 +89,8 @@ save_outputs() {
   trap '' USR1 TERM INT
   set +e
   local -a outputs=() archive_args=(-C "$workspace" run.log)
-  for tree in results logs objects reports; do
+  # Keep diagnostics only; generated design files and intermediate objects stay local.
+  for tree in logs reports; do
     [[ ! -e "$local_repo/$tree/$platform/$design/$variant" ]] || outputs+=("$tree/$platform/$design/$variant")
   done
   if (( ${#outputs[@]} > 0 )); then
