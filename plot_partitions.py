@@ -272,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
         description="Plot partition cut size vs. area imbalance, or merge all four PPA plots into a 2x2 figure.",
         epilog="Numbers rank the selected metric closest to zero (1 = closest); missing values are omitted. Requires matplotlib.",
     )
-    parser.add_argument("solutions_dir", type=Path, help="Directory containing sNNNN/solution.json")
+    parser.add_argument("solutions_dir", type=Path, help="Directory containing sNNNN/solutions")
     parser.add_argument("ppa_csv", type=Path, help="CSV from summarize_partitions.py (idx and selected metric required)")
     parser.add_argument("--metric", type=str.lower, choices=(*METRICS, "merge"), default="wns",
                         help="Metric for colors and ranks, or merge for a 2x2 figure (default: wns)")

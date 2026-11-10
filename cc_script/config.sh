@@ -7,7 +7,7 @@ export CC_ACCOUNT="aip-mtaylor3"
 export TAIWEI_BASE="$CC_BASE/TaiWei-Pin-3D"
 export ORFS_BASE="$CC_BASE/ORFS-Research"
 export CC_IMAGE="$CC_BASE/taiwei.sif"
-export CC_INPUT_ROOT="$TAIWEI_BASE/partition_experiments"
+export CC_INPUT_ROOT="$TAIWEI_BASE/partition_experiments_placemol"
 export CC_OUTPUT_ROOT="$SCRATCH/taiwei"
 
 # Experiment and resource settings, shared by all jobs.
