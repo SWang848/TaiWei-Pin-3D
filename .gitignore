@@ -48,5 +48,8 @@ work.codex/
 !/partition_experiments/*/*/
 !/partition_experiments/*/*/candidates.json
 
+# SA generates its own candidates and prepared seed from a 2D design config.
+/partition_experiments_sa/
+
 # ignore CC results
 /cc_results/

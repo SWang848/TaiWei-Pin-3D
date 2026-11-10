@@ -280,6 +280,135 @@ and duplicate assignments before writing. Re-running refreshes generated
 files without removing unrelated files. If solution identities or the number
 of folders would conflict with an earlier export, use a fresh output directory.
 
+To generate partitions directly from a design using the grid-based simulated
+annealer, use [generate_sa_macro_partitions.py](generate_sa_macro_partitions.py):
+
+```bash
+source env.sh
+python3 generate_sa_macro_partitions.py designs/nangate45_3D/bp_be/config2d.mk
+```
+
+Its input is the TaiWei **2D design config**, including the RTL/library paths
+already used by the flow. It builds the same private synthesis/floorplan/IO seed
+as the candidate converter, then reads instance areas, macro master types,
+hierarchy names and signal-net pins from that seed's OpenDB database using
+[export_sa_graph.tcl](scripts_openroad/export_sa_graph.tcl). DreamPlace and its
+PlaceDB are not needed. The partitioning implementation uses the standard library;
+Matplotlib generates the plots. Fresh seed preparation needs the usual Yosys and
+OpenROAD toolchain configured through `env.sh`, `YOSYS_EXE`, and `OPENROAD_EXE`.
+
+The default output is `partition_experiments_sa/<platform>/<case>/`. Use
+`--output-dir` to choose another directory. The output contains the same
+`solutions/sNNNN/macro_partition.txt`, `solution.json`, `manifest.tsv`,
+`macro_name_map.tsv`, and retained `preparation/` layout as the candidate
+converter, plus `candidates.json` with exact OpenDB macro names and run settings,
+`hierarchy_tree.txt`, and the plots described below. Each occupied grid cell can export multiple solutions;
+each receives its own solution ID. Duplicate assignments are identified by the
+manifest's `duplicate_of` column. The generated candidate JSON is also accepted
+by [generate_macro_partitions.py](generate_macro_partitions.py).
+
+Every SA run also saves `partition_solutions.png` (300 dpi) and
+`partition_solutions.pdf` (vector). The scatter plot uses cut size on the x-axis
+and absolute area imbalance in µm² on the y-axis, with blue markers, grid lines,
+scientific notation and an archive-entry count. It plots the raw cost of every
+exported solution, including dominated states and overlapping duplicate points.
+The Matplotlib `Agg` backend works without a display inside Docker. Install
+Matplotlib in the Python environment used to run the script if needed:
+
+```bash
+python3 -m pip install matplotlib
+```
+
+Use `--no-plot` to skip plotting and retain the standard-library-only partitioner.
+To plot an existing archive without running preparation or SA:
+
+```bash
+python3 generate_sa_macro_partitions.py --plot-only \
+  partition_experiments_sa/nangate45_3D/ariane133/candidates.json
+```
+
+Plots are saved beside the candidate archive; add `--output-dir` to choose
+another plot destination. The candidate archive and partition files are retained.
+
+For an existing matching **2D** seed, supply the directory containing
+`1_synth.sdc`, `2_2_floorplan_io.odb`, `2_2_floorplan_io.def`, and
+`2_2_floorplan_io.v` to skip synthesis:
+
+```bash
+python3 generate_sa_macro_partitions.py designs/nangate45_3D/bp_be/config2d.mk \
+  --seed-results partition_experiments/nangate45_3D/bp_be/preparation/results
+```
+
+The seed is copied into the new preparation directory. `--preparation-dir`
+can instead select a shared preparation cache; the three CC seed inputs are
+still copied to `<output-dir>/preparation/results/`. For CC evaluation, set
+`CC_INPUT_ROOT` in [cc_script/config.sh](cc_script/config.sh) to the SA output
+root (by default `"$TAIWEI_BASE/partition_experiments_sa"`), and keep
+`CC_STD_CELL_TIER=bottom` to match the annealer's cost model.
+
+The annealer preserves the reference algorithm's behavior:
+
+- Every non-IO instance becomes a graph vertex. `BLOCK*` masters identify macros,
+  consistently with TaiWei's partition importer. For each signal net with fewer
+  than 10 pins, the graph contains a clique with parallel-edge multiplicity.
+  IO pins count toward the fanout limit but are excluded as vertices; power and
+  ground nets are excluded. Cut size counts crossing **clique edges**, rather
+  than counting each crossing net once. `--net-pin-limit` changes the exclusive
+  pin cutoff.
+- Only macros move between tiers. Standard-cell areas stay on bottom, so the
+  second cost is `abs(bottom area - upper area)` in square microns, including
+  standard cells. Internal groups are `[bottom, upper]`; exported TaiWei labels
+  remain `1 = bottom`, `0 = upper`.
+- Random initialization uses `--seed 42`. Hierarchy-group moves favor coarse
+  groups at high temperatures and finer groups at low temperatures. Names use
+  the OpenDB hierarchy delimiter, normally `/`; literal underscores are
+  preserved. `--hierarchy-separator __` supports flattened hierarchy names.
+  A group gathers its macros onto the tier opposite its first macro, accounting
+  for descendants already on that tier when calculating the move's cut and area.
+- Both objectives use dynamic `log1p` normalization. Improving, equal and
+  incomparable moves are accepted; dominated moves use the original Metropolis
+  acceptance rule. Defaults are `--t-max 500 --t-min 0.1 --gamma 0.95
+  --steps-per-temperature 100`.
+- The default archive has `--grid-size 40` bins per objective and
+  `--grid-cell-capacity 3`. Bounds changes remap the archive and each cell keeps
+  its most recent entries. As in the reference, this grid archive can contain
+  dominated states. `--disable-grid-based-multi-objective` selects a true Pareto
+  archive instead; `--disable-hierarchy-aware-move` selects single-macro moves.
+
+Rerun with new hyperparameters to reuse preparation and **replace the generated
+partition results in the same output directory**:
+
+```bash
+python3 generate_sa_macro_partitions.py designs/nangate45_3D/ariane133/config2d.mk \
+  --seed 43 --grid-size 20 --steps-per-temperature 400 --gamma 0.97
+```
+
+The valid 2D seed is reused, and the raw OpenDB graph export is cached in
+`preparation/results/sa_graph.tsv`. Changing the random seed, temperature schedule,
+grid settings, hierarchy moves or net-pin cutoff does not run synthesis or
+OpenROAD graph export again. The script reads the cached pins and constructs
+in-memory adjacency with the selected cutoff before rerunning SA. Cache metadata
+in `sa_graph_info.json` validates the seed, exporter and graph fingerprints;
+existing graphs from earlier script versions can be adopted using the hashes
+in their candidate archive.
+
+The candidate JSON, manifest, macro name map, hierarchy report and partition
+files are updated. Obsolete generated solution files are removed if the new
+archive is smaller; preparation and unrelated files are retained. Identical
+files are left untouched. Solution IDs now refer to the new parameter run, so
+use a separate output directory to keep multiple experiments or their evaluation
+associations. A separate output can still share preparation:
+
+```bash
+python3 generate_sa_macro_partitions.py designs/nangate45_3D/ariane133/config2d.mk \
+  --seed 43 --output-dir partition_experiments_sa/seed43/nangate45_3D/ariane133 \
+  --preparation-dir partition_experiments_sa/nangate45_3D/ariane133/preparation
+```
+
+Use `--rebuild-seed` after changing RTL or libraries when preparing from a config;
+it also refreshes the graph export. Keep using the same container/repository path
+to reuse the seed cache's design-config identity.
+
 The [BP_BE example](designs/nangate45_3D/bp_be/macro_partition.txt) assigns four
 data memories to bottom and the other six memories to upper. With the matching
 2D seed files already present in the 3D results directory, generate the views
